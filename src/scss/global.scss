@@ -23,6 +23,18 @@
 }
 
 body {
-  background-color: #fff;
+  background-color: var(--color-secondary);
   font-family: "sandro-Regular", sans-serif;
+}
+
+:root {
+  --color-primary: #44413F;
+  --color-secondary: #D9D9D9;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-textHeading: #1C1C1C;
+  --color-iconBorder: #707070;
+  --color-contentText: #F7F7F7;
+  --color-contentHover: #999999;
+  --color-pdfDownload: #181818;
 }
