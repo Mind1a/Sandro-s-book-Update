@@ -1,1 +1,0 @@
-export { getDeviceSize } from "./getDeviceSize";
