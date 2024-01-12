@@ -1,0 +1,122 @@
+.contentPage {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  padding: 45px 70px 0px 70px;
+  gap: 100px;
+  .contents {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    z-index: 1;
+    .contentTitles {
+      font-size: 24px;
+      color: #fff;
+      line-height: 29px;
+      width: 165px;
+      cursor: pointer;
+      font-family: "sandro-Bold", sans-serif;
+      transition: 0.2s ease-in-out;
+      &:hover {
+        color: #999999;
+      }
+    }
+  }
+
+  .contentContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 70px;
+    z-index: 1;
+    .closeContent {
+      display: flex;
+      justify-content: flex-end;
+      height: 29px;
+      cursor: pointer;
+      img {
+        width: 17px;
+        height: 17px;
+      }
+    }
+
+    .contentChapter {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-column-gap: 140px;
+      grid-row-gap: 70px;
+      padding-bottom: 40px;
+      .Chapter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .chapterRoute {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-decoration: none;
+          transition: 0.2s ease-in-out;
+          color: #fff;
+          &:hover {
+            color: #999999;
+          }
+          span {
+            font-size: 16px;
+            line-height: 19px;
+            width: 130px;
+            margin-left: 35px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .aboutProject {
+      background-color: #181818;
+      padding: 10px;
+      h3 {
+        font-size: 24px;
+        color: #fff;
+        line-height: 30px;
+      }
+      .aboutTexts {
+        .aboutText {
+          font-size: 15px;
+          color: #fff;
+          line-height: 22px;
+          margin: 15px 0;
+        }
+      }
+    }
+    .contentPdfPage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 40px;
+      .pdfContent {
+        position: relative;
+        background-color: #181818;
+        width: 1000px;
+        min-height: 360px;
+        padding: 10px;
+        transition: all 0.5s;
+        color: white;
+        h3 {
+          font-size: 24px;
+          font-family: "sandro-Bold", sans-serif;
+          color: #fff;
+          line-height: 30px;
+          font-weight: 600;
+        }
+        .downloadPDF {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 170px;
+          padding-top: 50px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

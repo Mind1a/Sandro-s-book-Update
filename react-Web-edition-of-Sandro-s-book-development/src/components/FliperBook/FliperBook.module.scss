@@ -1,0 +1,10 @@
+.flipBook {
+  overflow: hidden;
+  .demoPage {
+    img {
+      width: 500px;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+}
