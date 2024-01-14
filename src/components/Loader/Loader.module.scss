@@ -1,0 +1,38 @@
+@import "../../scss/mixins";
+
+.loaderAnimation {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: var(--color-primary);
+  height: 100vh;
+}
+
+.loaderAnimationMobile {
+  position: relative;
+  height: 52px;
+  max-width: 100vw;
+  background-color: var(--color-white);
+}
+
+.handle {
+  @include position($right: 0, $bottom: 10%);
+  transform: translateX(50%);
+  width: 64px;
+  height: 64px;
+  background-color: var(--color-primary);
+  border: 8px solid var(--color-secondary);
+  border-radius: 50%;
+}
+
+.handleMobile {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateX(50%) translateY(-50%);
+  height: 64px;
+  width: 64px;
+  background-color: var(--color-textHeading);
+  border: 1px solid var(--color-white);
+  border-radius: 50%;
+}

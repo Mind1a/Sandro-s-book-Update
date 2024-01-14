@@ -1,0 +1,58 @@
+@import "../../scss/mixins.scss";
+
+.letterGroup {
+  @include position(10%, 80%);
+  transform: translate(-10%, -80%);
+  mix-blend-mode: difference;
+
+  img {
+    mix-blend-mode: difference;
+    filter: invert(1);
+    margin-left: 3px;
+  }
+}
+
+.letterQ {
+  width: 56px;
+  height: 102px;
+}
+
+.letterBoldA {
+  width: 35px;
+  height: 46px;
+}
+
+.letterBoldO {
+  margin-bottom: -30px;
+  transform: translate(0, 0);
+  width: 63px;
+  height: 51px;
+}
+
+.letterS {
+  width: 56px;
+  height: 71px;
+}
+
+.letterI {
+  margin-bottom: 20px;
+  width: 42px;
+  height: 55px;
+}
+
+.letterD {
+  margin-bottom: -30px;
+  width: 87px;
+  height: 78px;
+}
+
+.letterA {
+  margin-bottom: -10px;
+  width: 38px;
+  height: 49px;
+}
+
+.letterN {
+  width: 46px;
+  height: 72px;
+}
