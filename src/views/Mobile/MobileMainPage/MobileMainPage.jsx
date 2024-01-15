@@ -8,6 +8,40 @@ import { clamp, getTimeLeft } from "../../../utils/book";
 
 const swipeMargin = 50;
 
+const ChapterImages = () => {
+  const chapters = Object.entries(bookData).map(
+    ([book, { title }], index) => {
+      const imgSrc = `/assets/svgs/responsive-svg-TOC/${index + 1}.svg`;
+      return (
+        <div
+          onClick={() => {
+            if (title === "წინასიტყვაობა") {
+              scrollToPreface();
+            } else {
+              scrollToPlayer();
+            }
+
+            setBook(book);
+          }}
+          className={styles.contents}
+          key={index}
+        >
+          <div className={styles.contentsChild}>
+            <div className={styles.chapter}>
+              <a>{title}</a>
+            </div>
+            <div className={styles.spanIconContents}>
+              <img key={title} src={imgSrc} alt={`Chapter ${index + 1}`} />
+            </div>
+          </div>
+        </div>
+      );
+    }
+  );
+
+  return <>{chapters}</>;
+};
+
 export const MobileMainPage = () => {
   const [book, setBook] = useState("qaosidan-kosmosamde");
   const sectionRef = useRef(null);
@@ -84,40 +118,6 @@ export const MobileMainPage = () => {
         soundButtonsRef.current.removeEventListener("touchend", handleTouchEnd);
     };
   }, [soundButtonsRef, prevTouchX]);
-
-  const ChapterImages = () => {
-    const chapters = Object.entries(bookData).map(
-      ([book, { title }], index) => {
-        const imgSrc = `/assets/svgs/responsive-svg-TOC/${index + 1}.svg`;
-        return (
-          <div
-            onClick={() => {
-              if (title === "წინასიტყვაობა") {
-                scrollToPreface();
-              } else {
-                scrollToPlayer();
-              }
-
-              setBook(book);
-            }}
-            className={styles.contents}
-            key={index}
-          >
-            <div className={styles.contentsChild}>
-              <div className={styles.chapter}>
-                <a>{title}</a>
-              </div>
-              <div className={styles.spanIconContents}>
-                <img key={title} src={imgSrc} alt={`Chapter ${index + 1}`} />
-              </div>
-            </div>
-          </div>
-        );
-      }
-    );
-
-    return <>{chapters}</>;
-  };
 
   return (
     <div className={styles.mobileVersion}>
