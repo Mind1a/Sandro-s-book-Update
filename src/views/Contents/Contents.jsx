@@ -53,8 +53,10 @@ export const Contents = () => {
         </motion.div>
       </div>
       <div className={styles.contentContainer}>
-        <div className={styles.closeContent} onClick={() => navigate(-1)}>
-          <img src="assets/svgs/content-chapter-svg/closeBtn.svg" alt="" />
+        <div className={styles.closeContent}>
+          <button onClick={() => navigate(-1)} type="button">
+            <img src="assets/svgs/content-chapter-svg/closeBtn.svg" alt="" />
+          </button>
         </div>
         {contentPart === "content" && (
           <motion.div
