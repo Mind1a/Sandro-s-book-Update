@@ -1,6 +1,6 @@
 import styles from "./NavButton.module.scss";
 
-export const NavButton = ({ onClick, variant, type, children }) => {
+export const NavButton = ({ onClick, variant, type = "button", children }) => {
 
   return (
     <button
