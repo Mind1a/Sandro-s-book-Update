@@ -1,0 +1,1 @@
+export { SocialSVG } from "./SocialSVG";

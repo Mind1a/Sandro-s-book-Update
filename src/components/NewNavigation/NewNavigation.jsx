@@ -1,6 +1,9 @@
 import styles from "./NewNavigation.module.scss";
 import { NavButton } from "../Buttons/NavButton";
 import { AnchorNavButton } from "../Buttons/AnchorNavButton";
+import { BurgerSVG } from "../Svgs/Navigation svgs/Burger";
+import { SocialSVG } from "../Svgs/Navigation svgs/Social";
+import { PublishSVG } from "../Svgs/Navigation svgs/Publish";
 
 export const NewNavigation = () => {
 
@@ -11,15 +14,16 @@ export const NewNavigation = () => {
           <AnchorNavButton
             href={"/"}
           >
-            <img src="/assets/svgs/social-links/publish-icon.svg" alt="home" />
+            <PublishSVG variant={styles.publishSVG} />
+            FUTURE SVG
           </AnchorNavButton>
         </div>
         <div className={styles.navButtonsContainer}>
           <NavButton>
-            <img className={styles.burger} src="/assets/svgs/social-links/burger.svg" alt="menu" />
+            <BurgerSVG variant={styles.burgerSVG} />
           </NavButton>
           <NavButton>
-            <img className={styles.share} src="/assets/svgs/social-links/share.svg" alt="social" />
+            <SocialSVG variant={styles.socialSVG} />
           </NavButton>
           <NavButton>
             <span className={styles.lang}>EN</span>

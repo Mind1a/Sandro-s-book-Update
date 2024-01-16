@@ -8,15 +8,25 @@
 
 .toHomeContainer a {
   width: 78px;
-
-  img {
-    width: 100%;
-    height: 44px;
-  }
 }
 
 .navButtonsContainer {
   display: flex;
+
+  svg {
+    fill: var(--color-primary);
+  }
+
+  .burgerSVG {
+    width: 100%;
+    height: 100%;
+    transform: scaleX(1.4) scaleY(1.3);
+  }
+
+  .socialSVG {
+    width: 26px;
+    height: 30px;
+  }
 }
 
 .navButtonsContainer>button {
@@ -24,16 +34,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.burger {
-  width: 100%;
-  height: 100%;
-}
-
-.share {
-  width: 26px;
-  height: 30px;
+  overflow: hidden;
 }
 
 .lang {
