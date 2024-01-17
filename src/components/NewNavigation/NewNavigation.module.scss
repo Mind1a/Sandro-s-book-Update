@@ -1,0 +1,51 @@
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 20px 0 20px;
+  z-index: 1;
+}
+
+.toHomeContainer a {
+  width: 78px;
+}
+
+.navButtonsContainer {
+  display: flex;
+
+  svg {
+    fill: var(--color-primary);
+  }
+
+  .burgerSVG {
+    width: 100%;
+    height: 100%;
+    transform: scaleX(1.4) scaleY(1.3);
+  }
+
+  .socialSVG {
+    width: 26px;
+    height: 30px;
+  }
+}
+
+.navButtonsContainer>button {
+  margin-right: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lang {
+  font-size: 32px;
+  color: var(--color-primary);
+}
+
+.navButtonsContainer>button:last-child {
+  margin-right: 0px;
+}
+
+.navButtonsContainer:last-child() {
+  margin: 20px;
+}

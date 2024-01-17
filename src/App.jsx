@@ -6,12 +6,14 @@ import "./scss/global.scss";
 import { Preface } from "./views/Preface/Preface";
 import { MobileMainPage } from "./views/Mobile/MobileMainPage";
 import { useDeviceSize } from "./context/DeviceSizeProvider";
+import { NewNavigation } from "./components/NewNavigation";
 
 export default function App() {
   const deviceSize = useDeviceSize();
 
   return (
     <div>
+      {deviceSize !== "xs" && <NewNavigation />}
       <Routes>
         <Route
           path="/"
