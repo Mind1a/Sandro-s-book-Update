@@ -12,7 +12,7 @@ export default function App() {
   const deviceSize = useDeviceSize();
 
   return (
-    <div>
+    <>
       {deviceSize !== "xs" && <NewNavigation />}
       <Routes>
         <Route
@@ -33,6 +33,6 @@ export default function App() {
         />
       </Routes>
       {/* <Route path="*" element={<NotFound />} /> */}
-    </div>
+    </>
   );
 }
