@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
 import { Navigation } from "../../components/Navigation";
 import { ActionBar } from "../../components/ActionBar";
+import { AudioBar } from "../../components/AudioBar";
 import styles from "./Preface.module.scss";
 
 export const Preface = () => {
@@ -119,6 +120,11 @@ export const Preface = () => {
           </div>
           <h5>ზურა ჯიშკარიანი</h5>
         </div>
+        <AudioBar
+          preface={true}
+          onPrevClick={handlePrevClick}
+          onNextClick={handleNextClick}
+        />
       </div>
     </div>
   );

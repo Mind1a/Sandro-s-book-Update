@@ -1,0 +1,1 @@
+export { LeftArrowSVG } from "./LeftArrowSVG";
