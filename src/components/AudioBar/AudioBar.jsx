@@ -19,9 +19,8 @@ export const AudioBar = ({
         <LeftArrowSVG variant={styles.iconStyle} />
       </NavButton>
       {!preface &&
-        <NavButton>
-          {/* <PlaySVG variant={styles.pauseIcon} /> */}
-          <PauseSVG variant={styles.pauseIcon} />
+        <NavButton onClick={onPlayToggle}>
+          {isPaused ? <PlaySVG variant={styles.pauseIcon} /> : <PauseSVG variant={styles.pauseIcon} />}
         </NavButton>
       }
       <NavButton onClick={onNextClick}>

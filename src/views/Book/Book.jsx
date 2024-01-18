@@ -75,8 +75,10 @@ export const Book = () => {
         />
       </motion.div>
       <AudioBar
+        isPaused={isPaused}
         onPrevClick={handlePrevClick}
         onNextClick={handleNextClick}
+        onPlayToggle={handlePlayToggle}
       />
     </div>
   );
