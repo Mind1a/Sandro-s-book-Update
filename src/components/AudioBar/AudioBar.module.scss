@@ -1,0 +1,27 @@
+.audioBarContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 484px;
+  margin: 0 auto;
+  padding-top: 5px;
+  z-index: 1;
+
+  button {
+    overflow: hidden;
+  }
+}
+
+.iconStyle {
+  width: 33px;
+  height: 32px;
+  fill: var(--color-primary);
+}
+
+.pauseIcon {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.2);
+  fill: var(--color-primary);
+}

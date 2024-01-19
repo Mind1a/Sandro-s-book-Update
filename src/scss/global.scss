@@ -27,6 +27,12 @@ body {
   font-family: "sandro-Regular", sans-serif;
 }
 
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
 :root {
   --color-primary: #44413F;
   --color-secondary: #D9D9D9;

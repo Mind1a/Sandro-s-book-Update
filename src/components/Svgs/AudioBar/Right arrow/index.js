@@ -1,0 +1,1 @@
+import { RightArrowSVG } from "./RightArrowSVG";

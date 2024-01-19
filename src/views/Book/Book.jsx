@@ -7,6 +7,7 @@ import { bookData, books } from "../../bookData";
 import { Navigation } from "../../components/Navigation";
 import { motion } from "framer-motion";
 import { ActionBar } from "../../components/ActionBar";
+import { AudioBar } from "../../components/AudioBar";
 
 import { useBookPlayer } from "../../hooks/useBookPlayer";
 
@@ -73,6 +74,12 @@ export const Book = () => {
           onDrag={handleDrag}
         />
       </motion.div>
+      <AudioBar
+        isPaused={isPaused}
+        onPrevClick={handlePrevClick}
+        onNextClick={handleNextClick}
+        onPlayToggle={handlePlayToggle}
+      />
     </div>
   );
 };
