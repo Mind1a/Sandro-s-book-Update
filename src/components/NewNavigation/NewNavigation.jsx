@@ -23,10 +23,10 @@ export const NewNavigation = () => {
         </div>
         <div className={styles.navButtonsContainer}>
           <Dropdown icon={<BurgerSVG variant={styles.burgerSVG} />}>
-            <SideMenu />
+            {(props) => <SideMenu handleFalse={props.handleFalse} />}
           </Dropdown>
           <Dropdown icon={<SocialSVG variant={styles.socialSVG} />}>
-            <Social />
+            {() => <Social />}
           </Dropdown>
           <NavButton>
             <span className={styles.lang}>EN</span>

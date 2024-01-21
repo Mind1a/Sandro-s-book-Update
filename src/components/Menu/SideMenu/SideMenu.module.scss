@@ -1,0 +1,22 @@
+.sideMenu {
+  position: absolute;
+  margin-top: 2px;
+  top: 46px;
+  width: 184px;
+  height: 70svh;
+  background-color: var(--color-primary);
+  opacity: 0.8;
+  padding: 100px 0 0 25px;
+  font-size: 1.4rem;
+  color: var(--color-white);
+}
+
+.sideMenu a {
+  color: var(--color-white);
+}
+
+.sideMenuContainer button {
+  position: absolute;
+  border: none;
+  margin-top: 2px;
+}
