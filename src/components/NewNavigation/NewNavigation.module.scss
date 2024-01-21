@@ -29,8 +29,19 @@
   }
 }
 
+.navButtonsContainer>div {
+  margin-right: 2px;
+}
+
 .navButtonsContainer>button {
   margin-right: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.navButtonsContainer div button {
   display: flex;
   align-items: center;
   justify-content: center;
