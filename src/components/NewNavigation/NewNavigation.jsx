@@ -5,6 +5,7 @@ import { BurgerSVG } from "../Svgs/Navigation svgs/Burger";
 import { SocialSVG } from "../Svgs/Navigation svgs/Social";
 import { PublishSVG } from "../Svgs/Navigation svgs/Publish";
 import { Dropdown } from "../Dropdown";
+import { Social } from "../Menu/Social/Social";
 
 export const NewNavigation = () => {
 
@@ -24,7 +25,7 @@ export const NewNavigation = () => {
             <BurgerSVG variant={styles.burgerSVG} />
           </NavButton>
           <Dropdown icon={<SocialSVG variant={styles.socialSVG} />}>
-            "dropped"
+            <Social />
           </Dropdown>
           <NavButton>
             <span className={styles.lang}>EN</span>
