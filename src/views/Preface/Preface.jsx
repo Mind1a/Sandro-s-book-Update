@@ -22,12 +22,6 @@ export const Preface = () => {
         width={["100%", "15%"]}
         transition={{ duration: 1, ease: "easeOut" }}
       />
-      <Navigation />
-      <ActionBar
-        onPrevClick={handlePrevClick}
-        onNextClick={handleNextClick}
-        preface={true}
-      />
 
       <div className={styles.prefaceMainPart}>
         <h4>წინასიტყვაობა</h4>
