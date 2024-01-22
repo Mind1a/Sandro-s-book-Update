@@ -1,13 +1,14 @@
 @import "../../scss/mixins";
 
-.prefacePage {
-  position: relative;
-}
 
 .prefaceMainPart {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
   h4 {
     position: absolute;
-    @include position(20%, 0%);
+    @include position(8%, 1%);
     font-size: 2.75rem;
     mix-blend-mode: difference;
     color: var(--color-white);
@@ -15,15 +16,14 @@
   }
 
   .prefaceContent {
-    position: absolute;
-    @include position(20%, 17%, 2%);
     color: var(--color-white);
     mix-blend-mode: difference;
-    padding: 0 50px 40px 0;
+    flex-grow: 1;
+    margin: 0 15%;
 
     .prefaceText {
       p {
-        margin-bottom: 20px;
+        margin-bottom: 12px;
         font-size: 15px;
         font-family: "sandro-Regular";
         color: var(--color-white);

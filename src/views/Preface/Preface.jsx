@@ -17,7 +17,7 @@ export const Preface = () => {
     navigate("/books/qaosidan-kosmosamde");
   };
   return (
-    <div className={styles.prefacePage}>
+    <>
       <Loader
         width={["100%", "15%"]}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -120,7 +120,7 @@ export const Preface = () => {
           onNextClick={handleNextClick}
         />
       </div>
-    </div>
+    </>
   );
 };
 

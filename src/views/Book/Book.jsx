@@ -37,11 +37,19 @@ export const Book = () => {
       <span className={styles.timeLeft}>
         {getTimeLeft(duration, isSeeking ? seekTime : currentTime)}
       </span>
-      <img
-        className={styles.illustration}
-        src={illustration}
-        alt="illustration"
-      />
+      <div className={styles.mainContent}>
+        <img
+          className={styles.illustration}
+          src={illustration}
+          alt="illustration"
+        />
+        <AudioBar
+          isPaused={isPaused}
+          onPrevClick={handlePrevClick}
+          onNextClick={handleNextClick}
+          onPlayToggle={handlePlayToggle}
+        />
+      </div>
       <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
@@ -67,12 +75,6 @@ export const Book = () => {
           onDrag={handleDrag}
         />
       </motion.div>
-      <AudioBar
-        isPaused={isPaused}
-        onPrevClick={handlePrevClick}
-        onNextClick={handleNextClick}
-        onPlayToggle={handlePlayToggle}
-      />
     </div>
   );
 };
