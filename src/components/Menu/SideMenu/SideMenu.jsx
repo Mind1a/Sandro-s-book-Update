@@ -6,6 +6,11 @@ export const SideMenu = ({ handleFalse }) => {
 
   return (
     <div className={styles.sideMenuContainer}>
+      <NavButton
+        onClick={handleFalse}
+      >
+        <img src="/assets/svgs/social-links/button_close.svg" alt="close" />
+      </NavButton>
       <div className={styles.sideMenu}>
         <Link
           to={"/contents"}
@@ -35,11 +40,6 @@ export const SideMenu = ({ handleFalse }) => {
           გალერეა
         </Link>
       </div>
-      <NavButton
-        onClick={handleFalse}
-      >
-        <img src="/assets/svgs/social-links/button_close.svg" alt="close" />
-      </NavButton>
     </div>
   )
 }
