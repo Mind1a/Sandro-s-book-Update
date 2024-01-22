@@ -17,15 +17,18 @@ export const NewNavigation = () => {
           <AnchorNavButton
             href={"/"}
           >
-            <PublishSVG variant={styles.publishSVG} />
-            FUTURE SVG
+            <img src="/assets/svgs/social-links/SandrosBooks_logo.svg" alt="logo" />
           </AnchorNavButton>
         </div>
         <div className={styles.navButtonsContainer}>
-          <Dropdown icon={<BurgerSVG variant={styles.burgerSVG} />}>
+          <Dropdown
+            icon={<img src="/assets/svgs/social-links/button_burger.svg" alt="burger menu" />}
+          >
             {(props) => <SideMenu handleFalse={props.handleFalse} />}
           </Dropdown>
-          <Dropdown icon={<SocialSVG variant={styles.socialSVG} />}>
+          <Dropdown
+            icon={<img src="/assets/svgs/social-links/button_links.svg" alt="social links" />}
+          >
             {() => <Social />}
           </Dropdown>
           <NavButton>

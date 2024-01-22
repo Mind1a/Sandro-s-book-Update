@@ -12,21 +12,6 @@
 
 .navButtonsContainer {
   display: flex;
-
-  svg {
-    fill: var(--color-primary);
-  }
-
-  .burgerSVG {
-    width: 100%;
-    height: 100%;
-    transform: scaleX(1.4) scaleY(1.3);
-  }
-
-  .socialSVG {
-    width: 26px;
-    height: 30px;
-  }
 }
 
 .navButtonsContainer>div {
