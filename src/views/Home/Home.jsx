@@ -30,7 +30,6 @@ export const Home = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 + initialDelay }}
       >
-        <Navigation />
 
         <Link to="/books/qaosidan-kosmosamde" className={styles.playIcon}>
           <motion.img
