@@ -1,9 +1,6 @@
 import styles from "./NewNavigation.module.scss";
 import { NavButton } from "../Buttons/NavButton";
 import { AnchorNavButton } from "../Buttons/AnchorNavButton";
-import { BurgerSVG } from "../Svgs/Navigation svgs/Burger";
-import { SocialSVG } from "../Svgs/Navigation svgs/Social";
-import { PublishSVG } from "../Svgs/Navigation svgs/Publish";
 import { Dropdown } from "../Dropdown";
 import { Social } from "../Menu/Social/Social";
 import { SideMenu } from "../Menu/SideMenu";

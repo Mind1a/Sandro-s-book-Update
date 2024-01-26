@@ -1,12 +1,10 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
-import { clamp, getTimeLeft, getWidth } from "../../utils/book";
+import { getTimeLeft } from "../../utils/book";
 import styles from "./Book.module.scss";
 import { bookData, books } from "../../bookData";
-import { Navigation } from "../../components/Navigation";
 import { motion } from "framer-motion";
-import { ActionBar } from "../../components/ActionBar";
 import { AudioBar } from "../../components/AudioBar";
 
 import { useBookPlayer } from "../../hooks/useBookPlayer";
@@ -26,7 +24,6 @@ export const Book = ({ isMenuOpen }) => {
     handleDrag,
     handleDragStart,
     handleDragStop,
-    handlePlayToggle,
     handleNextClick,
     handlePrevClick,
     handleStart,
@@ -34,11 +31,7 @@ export const Book = ({ isMenuOpen }) => {
   } = useBookPlayer(book, bookData, books, 233);
 
   useEffect(() => {
-    if (isMenuOpen) {
-      handlePause();
-    } else {
-      handleStart();
-    }
+    isMenuOpen ? handlePause() : handleStart();
   }, [isMenuOpen])
 
   return (
