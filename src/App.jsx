@@ -7,13 +7,15 @@ import { Preface } from "./views/Preface/Preface";
 import { MobileMainPage } from "./views/Mobile/MobileMainPage";
 import { useDeviceSize } from "./context/DeviceSizeProvider";
 import { NewNavigation } from "./components/NewNavigation";
+import { useToggle } from "./hooks/useToggle";
 
 export default function App() {
   const deviceSize = useDeviceSize();
+  const { toggle: isMenuOpen, handleToggle, handleFalse } = useToggle();
 
   return (
     <>
-      {deviceSize !== "xs" && <NewNavigation />}
+      {deviceSize !== "xs" && <NewNavigation isMenuOpen={isMenuOpen} handleFalse={handleFalse} handleToggle={handleToggle} />}
       <Routes>
         <Route
           path="/"
@@ -29,7 +31,7 @@ export default function App() {
         />
         <Route
           path="/books/:book"
-          element={deviceSize === "xs" ? <MobileMainPage /> : <Book />}
+          element={deviceSize === "xs" ? <MobileMainPage /> : <Book isMenuOpen={isMenuOpen} />}
         />
       </Routes>
       {/* <Route path="*" element={<NotFound />} /> */}

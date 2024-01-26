@@ -11,7 +11,7 @@ import { AudioBar } from "../../components/AudioBar";
 
 import { useBookPlayer } from "../../hooks/useBookPlayer";
 
-export const Book = () => {
+export const Book = ({ isMenuOpen }) => {
   const { book } = useParams();
   const { title, illustration } = bookData[book];
 
@@ -29,7 +29,17 @@ export const Book = () => {
     handlePlayToggle,
     handleNextClick,
     handlePrevClick,
+    handleStart,
+    handlePause
   } = useBookPlayer(book, bookData, books, 233);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      handlePause();
+    } else {
+      handleStart();
+    }
+  }, [isMenuOpen])
 
   return (
     <div className={styles.bookPage}>
@@ -47,7 +57,8 @@ export const Book = () => {
           isPaused={isPaused}
           onPrevClick={handlePrevClick}
           onNextClick={handleNextClick}
-          onPlayToggle={handlePlayToggle}
+          onPlayStart={handleStart}
+          onPlayPause={handlePause}
         />
       </div>
       <motion.div
@@ -65,7 +76,7 @@ export const Book = () => {
       >
         <Loader
           trackProgress
-          width={`${width * 100}%`}
+          width={!isMenuOpen ? `${width * 100}%` : '0%'}
           initialWidth={initialWidth}
           isSeeking={isSeeking}
           transition={{ duration: 0 }}
@@ -73,6 +84,7 @@ export const Book = () => {
           onDragStart={handleDragStart}
           onDragStop={handleDragStop}
           onDrag={handleDrag}
+          isMenuOpen={isMenuOpen}
         />
       </motion.div>
     </div>
