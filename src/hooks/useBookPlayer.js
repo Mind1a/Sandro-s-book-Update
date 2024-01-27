@@ -69,14 +69,22 @@ export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
     }
   }, [initialWidth]);
 
+  const handleStart = () => {
+    audio.play().catch((err) => {
+      console.log(err);
+      setIsPaused(true);
+    });
+  };
+
+  const handlePause = () => {
+    audio.pause();
+  };
+
   const handlePlayToggle = () => {
     if (audio.paused) {
-      audio.play().catch((err) => {
-        console.log(err);
-        setIsPaused(true);
-      });
+      handleStart();
     } else {
-      audio.pause();
+      handlePause();
     }
   };
 
@@ -137,5 +145,7 @@ export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
     handlePlayToggle,
     handleNextClick,
     handlePrevClick,
+    handleStart,
+    handlePause
   };
 };

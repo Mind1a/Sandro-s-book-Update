@@ -8,7 +8,8 @@ import { PlaySVG } from "../Svgs/AudioBar/Play/PlaySVG";
 export const AudioBar = ({
   onPrevClick,
   onNextClick,
-  onPlayToggle,
+  onPlayStart,
+  onPlayPause,
   preface,
   isPaused
 }) => {
@@ -18,11 +19,15 @@ export const AudioBar = ({
       <NavButton onClick={onPrevClick}>
         <LeftArrowSVG variant={styles.iconStyle} />
       </NavButton>
-      {!preface &&
-        <NavButton onClick={onPlayToggle}>
-          {isPaused ? <PlaySVG variant={styles.pauseIcon} /> : <PauseSVG variant={styles.pauseIcon} />}
-        </NavButton>
-      }
+      {!preface && (
+        isPaused ?
+          <NavButton onClick={onPlayStart}>
+            <PlaySVG variant={styles.pauseplayIcon} />
+          </NavButton> :
+          <NavButton onClick={onPlayPause}>
+            <PauseSVG variant={styles.pauseplayIcon} />
+          </NavButton>
+      )}
       <NavButton onClick={onNextClick}>
         <RightArrowSVG variant={styles.iconStyle} />
       </NavButton>

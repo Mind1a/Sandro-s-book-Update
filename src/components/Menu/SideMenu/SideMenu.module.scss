@@ -1,14 +1,18 @@
 .sideMenu {
   position: absolute;
   margin-top: 2px;
-  top: 46px;
   width: 184px;
-  height: 70svh;
+  height: calc(100svh - 80px);
   background-color: var(--color-primary);
   opacity: 0.8;
-  padding: 100px 0 0 25px;
+  padding: 6.25rem 0 0 1.55rem;
   font-size: 1.4rem;
   color: var(--color-white);
+  overflow-y: auto;
+}
+
+.sideMenu::-webkit-scrollbar {
+  display: none;
 }
 
 .sideMenu a {

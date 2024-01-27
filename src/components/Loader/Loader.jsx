@@ -14,6 +14,7 @@ export const Loader = ({
   onDrag,
   mobile,
   touchRef,
+  isMenuOpen
 }) => {
   const handleRef = useRef(null);
   const [initialX, setInitialX] = useState(null);
@@ -34,7 +35,7 @@ export const Loader = ({
     const margin = document.getElementById("root").clientWidth * initialWidth;
     onDragStop(
       (handle.parentNode.clientWidth - margin) /
-        (document.getElementById("root").clientWidth - margin)
+      (document.getElementById("root").clientWidth - margin)
     );
   };
 
@@ -44,7 +45,7 @@ export const Loader = ({
     if (e.buttons === 1 && isSeeking) {
       onDrag(
         (e.clientX - initialX) /
-          (document.getElementById("root").clientWidth - margin)
+        (document.getElementById("root").clientWidth - margin)
       );
     }
   };
@@ -54,7 +55,7 @@ export const Loader = ({
     if (isSeeking) {
       onDrag(
         (e.touches[0].clientX - initialX) /
-          (document.getElementById("root").clientWidth - margin)
+        (document.getElementById("root").clientWidth - margin)
       );
     }
   };
@@ -82,7 +83,7 @@ export const Loader = ({
       animate={{ width: width }}
       transition={transition}
     >
-      {trackProgress && (
+      {trackProgress && !isMenuOpen && (
         <motion.div
           ref={handleRef}
           initial={{ opacity: 0, borderWidth: 0 }}

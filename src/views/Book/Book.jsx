@@ -1,17 +1,15 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
-import { clamp, getTimeLeft, getWidth } from "../../utils/book";
+import { getTimeLeft } from "../../utils/book";
 import styles from "./Book.module.scss";
 import { bookData, books } from "../../bookData";
-import { Navigation } from "../../components/Navigation";
 import { motion } from "framer-motion";
-import { ActionBar } from "../../components/ActionBar";
 import { AudioBar } from "../../components/AudioBar";
 
 import { useBookPlayer } from "../../hooks/useBookPlayer";
 
-export const Book = () => {
+export const Book = ({ isMenuOpen }) => {
   const { book } = useParams();
   const { title, illustration } = bookData[book];
 
@@ -26,10 +24,15 @@ export const Book = () => {
     handleDrag,
     handleDragStart,
     handleDragStop,
-    handlePlayToggle,
     handleNextClick,
     handlePrevClick,
+    handleStart,
+    handlePause
   } = useBookPlayer(book, bookData, books, 233);
+
+  useEffect(() => {
+    isMenuOpen ? handlePause() : handleStart();
+  }, [isMenuOpen])
 
   return (
     <div className={styles.bookPage}>
@@ -47,7 +50,8 @@ export const Book = () => {
           isPaused={isPaused}
           onPrevClick={handlePrevClick}
           onNextClick={handleNextClick}
-          onPlayToggle={handlePlayToggle}
+          onPlayStart={handleStart}
+          onPlayPause={handlePause}
         />
       </div>
       <motion.div
@@ -65,7 +69,7 @@ export const Book = () => {
       >
         <Loader
           trackProgress
-          width={`${width * 100}%`}
+          width={!isMenuOpen ? `${width * 100}%` : '0%'}
           initialWidth={initialWidth}
           isSeeking={isSeeking}
           transition={{ duration: 0 }}
@@ -73,6 +77,7 @@ export const Book = () => {
           onDragStart={handleDragStart}
           onDragStop={handleDragStop}
           onDrag={handleDrag}
+          isMenuOpen={isMenuOpen}
         />
       </motion.div>
     </div>
