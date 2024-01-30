@@ -27,7 +27,7 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
             </Link>
             <div>------</div>
             <Link
-              to={"/contents"}
+              to={"/about"}
               onClick={handleFalse}
             >
               პროექტის შესახებ

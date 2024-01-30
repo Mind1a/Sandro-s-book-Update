@@ -7,7 +7,8 @@ import { Preface } from "./views/Preface/Preface";
 import { MobileMainPage } from "./views/Mobile/MobileMainPage";
 import { useDeviceSize } from "./context/DeviceSizeProvider";
 import { NewNavigation } from "./components/NewNavigation";
-import { Pdf } from "./views/Pdf/Pdf";
+import { Pdf } from "./views/Pdf";
+import { About } from "./views/About";
 import { useToggle } from "./hooks/useToggle";
 
 export default function App() {
@@ -28,7 +29,7 @@ export default function App() {
         />
         <Route
           path="/about"
-          element={deviceSize === "xs" ? <MobileMainPage /> : <></>}
+          element={deviceSize === "xs" ? <MobileMainPage /> : <About />}
         />
         <Route
           path="/pdf"

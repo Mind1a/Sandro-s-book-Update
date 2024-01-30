@@ -1,5 +1,5 @@
 import styles from "./Pdf.module.scss";
-import { Loader } from "../../components/Loader/Loader";
+import { Loader } from "../../components/Loader";
 import { motion } from "framer-motion";
 import { FliperBook } from "../../components/FliperBook";
 
