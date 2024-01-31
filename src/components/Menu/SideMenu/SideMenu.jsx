@@ -27,14 +27,14 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
             </Link>
             <div>------</div>
             <Link
-              to={"/contents"}
+              to={"/about"}
               onClick={handleFalse}
             >
               პროექტის შესახებ
             </Link>
             <div>------</div>
             <Link
-              to={"/contents"}
+              to={"/pdf"}
               onClick={handleFalse}
             >
               წიგნის PDF ვერსია
