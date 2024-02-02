@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
-import { getTimeLeft } from "../../utils/book";
 import styles from "./Book.module.scss";
 import { bookData, books } from "../../bookData";
 import { motion } from "framer-motion";

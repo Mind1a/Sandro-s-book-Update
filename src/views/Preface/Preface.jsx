@@ -1,8 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
-import { Navigation } from "../../components/Navigation";
-import { ActionBar } from "../../components/ActionBar";
 import { AudioBar } from "../../components/AudioBar";
 import styles from "./Preface.module.scss";
 

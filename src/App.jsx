@@ -6,7 +6,7 @@ import "./scss/global.scss";
 import { Preface } from "./views/Preface/Preface";
 import { MobileMainPage } from "./views/Mobile/MobileMainPage";
 import { useDeviceSize } from "./context/DeviceSizeProvider";
-import { NewNavigation } from "./components/NewNavigation";
+import { Navigation } from "./components/Navigation";
 import { Pdf } from "./views/Pdf";
 import { About } from "./views/About";
 import { useToggle } from "./hooks/useToggle";
@@ -17,7 +17,7 @@ export default function App() {
 
   return (
     <>
-      {deviceSize !== "xs" && <NewNavigation isMenuOpen={isMenuOpen} handleFalse={handleFalse} handleToggle={handleToggle} />}
+      {deviceSize !== "xs" && <Navigation isMenuOpen={isMenuOpen} handleFalse={handleFalse} handleToggle={handleToggle} />}
       <Routes>
         <Route
           path="/"

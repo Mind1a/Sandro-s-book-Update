@@ -8,7 +8,7 @@ import { clamp, getTimeLeft } from "../../../utils/book";
 
 const swipeMargin = 50;
 
-const ChapterImages = () => {
+const ChapterImages = ({ scrollToPreface, scrollToPlayer, setBook }) => {
   const chapters = Object.entries(bookData).map(
     ([book, { title }], index) => {
       const imgSrc = `/assets/svgs/responsive-svg-TOC/${index + 1}.svg`;
@@ -228,7 +228,7 @@ export const MobileMainPage = () => {
         </div>
       </section>
       <section ref={sectionRef} className={styles.mobileContents}>
-        <ChapterImages />
+        <ChapterImages scrollToPlayer={scrollToPlayer} scrollToPreface={scrollToPreface} setBook={setBook} />
       </section>
       <section className={styles.MobilePdf}>
         <div className={styles.mobilePdfContent}>
