@@ -18,11 +18,15 @@
 .handle {
   @include position($right: 0, $bottom: 10%);
   transform: translateX(50%);
-  width: 64px;
-  height: 64px;
+  width: 71px;
+  height: 71px;
   background-color: var(--color-primary);
-  border: 8px solid var(--color-secondary);
+  border: 6px solid var(--color-secondary);
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
 }
 
 .handleMobile {
@@ -35,4 +39,12 @@
   background-color: var(--color-textHeading);
   border: 1px solid var(--color-white);
   border-radius: 50%;
+}
+
+.timeLeft {
+  font-size: 1.375rem;
+  mix-blend-mode: difference;
+  color: var(--color-white);
+  font-family: "sandro-Regular";
+  pointer-events: none;
 }
