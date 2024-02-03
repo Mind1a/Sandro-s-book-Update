@@ -1,5 +1,4 @@
 import { Loader } from "../../components/Loader/Loader";
-import { Navigation } from "../../components/Navigation";
 import styles from "./Home.module.scss";
 import { motion } from "framer-motion";
 import ChaosLetters from "../../components/ChaosLetters/ChaosLetters";

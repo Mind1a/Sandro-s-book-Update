@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Contents.module.scss";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
-import { FliperBook } from "../../components/FliperBook";
 import { bookData } from "../../bookData";
-import { useNavigate } from "react-router-dom";
-
 
 export const Contents = () => {
 

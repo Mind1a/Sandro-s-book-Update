@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
-import { getTimeLeft } from "../../utils/book";
 import styles from "./Book.module.scss";
 import { bookData, books } from "../../bookData";
 import { motion } from "framer-motion";
@@ -37,9 +36,6 @@ export const Book = ({ isMenuOpen }) => {
   return (
     <div className={styles.bookPage}>
       <h4 className={styles.title}>{title}</h4>
-      <span className={styles.timeLeft}>
-        {getTimeLeft(duration, isSeeking ? seekTime : currentTime)}
-      </span>
       <div className={styles.mainContent}>
         <img
           className={styles.illustration}
@@ -78,6 +74,9 @@ export const Book = ({ isMenuOpen }) => {
           onDragStop={handleDragStop}
           onDrag={handleDrag}
           isMenuOpen={isMenuOpen}
+          duration={duration}
+          seekTime={seekTime}
+          currentTime={currentTime}
         />
       </motion.div>
     </div>
