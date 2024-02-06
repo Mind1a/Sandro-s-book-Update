@@ -1,0 +1,27 @@
+.sideMenu {
+  position: absolute;
+  margin-top: 2px;
+  width: 184px;
+  height: calc(100svh - 80px);
+  background-color: var(--color-primary);
+  opacity: 0.8;
+  padding: 6.25rem 0 0 1.55rem;
+  font-size: 1.4rem;
+  color: var(--color-white);
+  overflow-y: auto;
+}
+
+.sideMenu::-webkit-scrollbar {
+  display: none;
+}
+
+.sideMenu a {
+  color: var(--color-white);
+}
+
+.sideMenuContainer button {
+  position: absolute;
+  border: none;
+  margin-top: 2px;
+  z-index: 1;
+}

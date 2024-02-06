@@ -1,8 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
-import { Navigation } from "../../components/Navigation";
-import { ActionBar } from "../../components/ActionBar";
+import { AudioBar } from "../../components/AudioBar";
 import styles from "./Preface.module.scss";
 
 export const Preface = () => {
@@ -16,16 +15,10 @@ export const Preface = () => {
     navigate("/books/qaosidan-kosmosamde");
   };
   return (
-    <div className={styles.prefacePage}>
+    <>
       <Loader
         width={["100%", "15%"]}
         transition={{ duration: 1, ease: "easeOut" }}
-      />
-      <Navigation />
-      <ActionBar
-        onPrevClick={handlePrevClick}
-        onNextClick={handleNextClick}
-        preface={true}
       />
 
       <div className={styles.prefaceMainPart}>
@@ -116,11 +109,16 @@ export const Preface = () => {
             <p>
               სანდრო ასათიანის ეს წიგნი კი გზამკვლევია ამ საოცარ მოგზაურობაში.
             </p>
+            <h5>ზურა ჯიშკარიანი</h5>
           </div>
-          <h5>ზურა ჯიშკარიანი</h5>
         </div>
+        <AudioBar
+          preface={true}
+          onPrevClick={handlePrevClick}
+          onNextClick={handleNextClick}
+        />
       </div>
-    </div>
+    </>
   );
 };
 

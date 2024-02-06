@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import styles from "./Loader.module.scss";
 import { useState, useEffect, useRef } from "react";
+import { getTimeLeft } from "../../utils/book";
 
 export const Loader = ({
   width,
@@ -14,6 +15,10 @@ export const Loader = ({
   onDrag,
   mobile,
   touchRef,
+  isMenuOpen,
+  duration,
+  seekTime,
+  currentTime
 }) => {
   const handleRef = useRef(null);
   const [initialX, setInitialX] = useState(null);
@@ -34,7 +39,7 @@ export const Loader = ({
     const margin = document.getElementById("root").clientWidth * initialWidth;
     onDragStop(
       (handle.parentNode.clientWidth - margin) /
-        (document.getElementById("root").clientWidth - margin)
+      (document.getElementById("root").clientWidth - margin)
     );
   };
 
@@ -44,7 +49,7 @@ export const Loader = ({
     if (e.buttons === 1 && isSeeking) {
       onDrag(
         (e.clientX - initialX) /
-          (document.getElementById("root").clientWidth - margin)
+        (document.getElementById("root").clientWidth - margin)
       );
     }
   };
@@ -54,7 +59,7 @@ export const Loader = ({
     if (isSeeking) {
       onDrag(
         (e.touches[0].clientX - initialX) /
-          (document.getElementById("root").clientWidth - margin)
+        (document.getElementById("root").clientWidth - margin)
       );
     }
   };
@@ -82,17 +87,21 @@ export const Loader = ({
       animate={{ width: width }}
       transition={transition}
     >
-      {trackProgress && (
+      {trackProgress && !isMenuOpen && (
         <motion.div
           ref={handleRef}
           initial={{ opacity: 0, borderWidth: 0 }}
-          animate={{ opacity: 1, borderWidth: mobile ? "6px" : "8px" }}
+          animate={{ opacity: 1, borderWidth: "6px" }}
           transition={handleTransition}
           onMouseDown={handleDragStart}
           onTouchStart={handleTouchDragStart}
           className={mobile ? styles.handleMobile : styles.handle}
           draggable={false}
-        />
+        >
+          {!mobile && <span className={styles.timeLeft}>
+            {getTimeLeft(duration, isSeeking ? seekTime : currentTime)}
+          </span>}
+        </motion.div >
       )}
     </motion.div>
   );
