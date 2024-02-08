@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { Home } from "./views/Home";
 import { Contents } from "./views/Contents";
 import { Book } from "./views/Book";
@@ -13,11 +13,16 @@ import { useToggle } from "./hooks/useToggle";
 
 export default function App() {
   const deviceSize = useDeviceSize();
+  const location = useLocation();
   const { toggle: isMenuOpen, handleToggle, handleFalse } = useToggle();
+  const noNavigationPaths = ["/"];
 
   return (
     <>
-      {deviceSize !== "xs" && <Navigation isMenuOpen={isMenuOpen} handleFalse={handleFalse} handleToggle={handleToggle} />}
+      {deviceSize !== "xs" && !noNavigationPaths.includes(location.pathname) &&
+        <Navigation isMenuOpen={isMenuOpen} handleFalse={handleFalse} handleToggle={handleToggle} />
+      }
+
       <Routes>
         <Route
           path="/"
