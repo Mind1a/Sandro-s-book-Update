@@ -25,21 +25,27 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
             >
               სარჩევი
             </Link>
-            <div>------</div>
+            <div className={styles.iconContainer}>
+              <img src="/assets/svgs/side-menu-svg/menu-line-1.svg" alt="line" />
+            </div>
             <Link
               to={"/about"}
               onClick={handleFalse}
             >
               პროექტის შესახებ
             </Link>
-            <div>------</div>
+            <div className={styles.iconContainer}>
+              <img src="/assets/svgs/side-menu-svg/menu-line-2.svg" alt="line" />
+            </div>
             <Link
               to={"/pdf"}
               onClick={handleFalse}
             >
               წიგნის PDF ვერსია
             </Link>
-            <div>------</div>
+            <div className={styles.iconContainer}>
+              <img src="/assets/svgs/side-menu-svg/menu-line-3.svg" alt="line" />
+            </div>
             <Link
               to={"/contents"}
               onClick={handleFalse}
