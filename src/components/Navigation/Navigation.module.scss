@@ -4,6 +4,7 @@
   justify-content: space-between;
   padding: 15px 20px 0 20px;
   z-index: 1;
+  font-family: "Sandro-Universal-Bold";
 }
 
 .toHomeContainer a {
@@ -35,14 +36,11 @@
 }
 
 .lang {
-  font-size: 32px;
+  font-size: 2.375rem;
+  font-family: "Sandro-Universal-Bold";
   color: var(--color-primary);
 }
 
 .navButtonsContainer>button:last-child {
   margin-right: 0px;
-}
-
-.navButtonsContainer:last-child() {
-  margin: 20px;
 }
