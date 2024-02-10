@@ -12,7 +12,10 @@ export const Dropdown = ({ icon, variant, children }) => {
   // gives us opportunity to pass props inside children components with renderProps approach (children(props)).
   // https://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children
   return (
-    <div className={variant ? variant : styles.container}>
+    <div
+      className={variant ? variant : styles.container}
+      onKeyDown={(e) => e.key === "Escape" && handleFalse()}
+    >
       <OutsideClickHandler onOutsideClick={handleFalse}>
         <ReactFocusLock disabled={!isClicked}>
           <NavButton onClick={handleToggle}>
