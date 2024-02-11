@@ -11,9 +11,11 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
     <div onKeyDown={(e) => e.key === "Escape" && handleFalse()}>
       <OutsideClickHandler onOutsideClick={handleFalse}>
         <ReactFocusLock disabled={!isMenuOpen}>
+
           <NavButton onClick={handleToggle}>
             <img src="/assets/svgs/social-links/button_burger.svg" alt="burger menu" />
           </NavButton>
+
           {isMenuOpen &&
             <motion.div
               initial={{ opacity: 0 }}
@@ -21,11 +23,10 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
               transition={{ duration: 0.25 }}
               className={styles.sideMenuContainer}
             >
-              <NavButton
-                onClick={handleFalse}
-              >
+              <NavButton onClick={handleFalse}>
                 <img src="/assets/svgs/social-links/button_close.svg" alt="close" />
               </NavButton>
+
               <div className={styles.sideMenu}>
                 <Link
                   to={"/contents"}

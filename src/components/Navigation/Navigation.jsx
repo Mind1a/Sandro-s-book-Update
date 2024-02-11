@@ -11,19 +11,22 @@ export const Navigation = ({ isMenuOpen, handleFalse, handleToggle }) => {
     <header>
       <nav className={styles.nav}>
         <div className={styles.toHomeContainer}>
-          <AnchorNavButton
-            href={"/"}
-          >
+          <AnchorNavButton href={"/"}>
             <img src="/assets/svgs/social-links/SandrosBooks_logo.svg" alt="logo" />
           </AnchorNavButton>
         </div>
+
         <div className={styles.navButtonsContainer}>
-          <SideMenu isMenuOpen={isMenuOpen} handleFalse={handleFalse} handleToggle={handleToggle} />
-          <Dropdown
-            icon={<img src="/assets/svgs/social-links/button_links.svg" alt="social links" />}
-          >
+          <SideMenu
+            isMenuOpen={isMenuOpen}
+            handleFalse={handleFalse}
+            handleToggle={handleToggle}
+          />
+
+          <Dropdown icon={<img src="/assets/svgs/social-links/button_links.svg" alt="social links" />}>
             {() => <Social />}
           </Dropdown>
+
           <NavButton>
             <span className={styles.lang}>EN</span>
           </NavButton>
