@@ -17,6 +17,11 @@
 
 .sideMenu a {
   color: var(--color-white);
+  transition: ease .25s;
+}
+
+.sideMenu a:hover {
+  color: var(--color-contentHover);
 }
 
 .sideMenuContainer button {
