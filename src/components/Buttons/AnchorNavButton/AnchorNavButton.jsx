@@ -10,6 +10,7 @@ export const AnchorNavButton = ({ href, variant, target, children }) => {
       className={variant ? `${styles.anchorNavButton} ${variant}` : `${styles.anchorNavButton}`}
     >
       {children}
+      <div className={styles.buttonOverlay}></div>
     </Link>
   )
 }
