@@ -1,1 +1,0 @@
-export { PublishSVG } from "./PublishSVG";
