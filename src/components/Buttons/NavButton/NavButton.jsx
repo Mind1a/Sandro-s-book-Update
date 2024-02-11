@@ -10,6 +10,7 @@ export const NavButton = ({ onClick, variant, type = "button", children }) => {
     // for default style overriding use more specificity on your variant class
     >
       {children}
+      <div className={styles.buttonOverlay}></div>
     </button>
   )
 }
