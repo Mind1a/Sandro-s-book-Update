@@ -234,7 +234,7 @@ export const MobileMainPage = () => {
         <div className={styles.mobilePdfContent}>
           <h3>გადმოიწერე წიგნის PDF ვერსია</h3>
           <a
-            href="https://fromchaostocosmos.sandroasatiani.com/SandroAsatiani_ChaosidanCosmosamde.pdf"
+            href="assets/pdf/SandroAsatiani_ChaosidanCosmosamde.pdf"
             target="_blank"
           >
             <img
@@ -427,7 +427,8 @@ export const MobileMainPage = () => {
           <p>მერი გოგოჩაშვილი,</p>
           <p>გიორგი სანოძე,</p>
           <p>ნიკა ქვრივიშვილი,</p>
-          <p>მინდია არაბული.</p>
+          <p>მინდია არაბული,</p>
+          <p>დავით ხაჩატუროვი.</p>
         </div>
       </section>
     </div>

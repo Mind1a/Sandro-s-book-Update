@@ -1,1 +1,0 @@
-export { BurgerSVG } from "./BurgerSVG";

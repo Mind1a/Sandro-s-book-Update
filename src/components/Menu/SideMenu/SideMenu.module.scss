@@ -17,6 +17,11 @@
 
 .sideMenu a {
   color: var(--color-white);
+  transition: ease .25s;
+}
+
+.sideMenu a:hover {
+  color: var(--color-contentHover);
 }
 
 .sideMenuContainer button {
@@ -24,4 +29,10 @@
   border: none;
   margin-top: 2px;
   z-index: 1;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
 }
