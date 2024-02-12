@@ -15,7 +15,7 @@
   .contentsContainer {
     display: flex;
     flex-direction: column;
-    // width: 1000px;
+    max-width: 1000px;
     width: 100%;
     margin: 0 auto;
     z-index: 0;
@@ -23,7 +23,7 @@
     .contentsChapter {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-column-gap: 140px;
+      grid-column-gap: 120px;
       grid-row-gap: 70px;
       padding-bottom: 40px;
 

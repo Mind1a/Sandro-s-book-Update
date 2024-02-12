@@ -21,9 +21,7 @@ export const Pdf = () => {
           </h3>
           <div className={styles.downloadPDF}>
             <a
-              // href="assets/pdf/SandroAsatiani_ChaosidanCosmosamde.pdf"
-              // download="pdf"
-              href="https://fromchaostocosmos.sandroasatiani.com/SandroAsatiani_ChaosidanCosmosamde.pdf"
+              href="assets/pdf/SandroAsatiani_ChaosidanCosmosamde.pdf"
               target="_blank"
             >
               <img

@@ -19,6 +19,7 @@ export const AudioBar = ({
       <NavButton onClick={onPrevClick}>
         <LeftArrowSVG variant={styles.iconStyle} />
       </NavButton>
+
       {!preface && (
         isPaused ?
           <NavButton onClick={onPlayStart}>
@@ -28,6 +29,7 @@ export const AudioBar = ({
             <PauseSVG variant={styles.pauseplayIcon} />
           </NavButton>
       )}
+
       <NavButton onClick={onNextClick}>
         <RightArrowSVG variant={styles.iconStyle} />
       </NavButton>
