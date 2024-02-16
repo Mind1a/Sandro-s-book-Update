@@ -4,7 +4,7 @@ import { NavButton } from "../Buttons/NavButton";
 import { useToggle } from "../../hooks/useToggle";
 import OutsideClickHandler from "react-outside-click-handler";
 import ReactFocusLock from "react-focus-lock";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Dropdown = ({
   icon,
@@ -12,6 +12,7 @@ export const Dropdown = ({
   handleInitial,
   handleAnimate,
   handleTransition,
+  handleExit,
   children
 }) => {
   const { toggle: isClicked, handleFalse, handleTrue, handleToggle } = useToggle();
@@ -29,14 +30,17 @@ export const Dropdown = ({
           <NavButton onClick={handleToggle}>
             {icon}
           </NavButton>
-          {isClicked ?
-            <motion.div
-              initial={handleInitial || { opacity: 0 }}
-              animate={handleAnimate || { opacity: 1 }}
-              transition={handleTransition || { duration: 0.25 }}
-            >
-              {children(props)}
-            </motion.div> : null}
+          <AnimatePresence>
+            {isClicked ?
+              <motion.div
+                initial={handleInitial || { opacity: 0 }}
+                animate={handleAnimate || { opacity: 1 }}
+                transition={handleTransition || { duration: 0.25 }}
+                exit={handleExit || { opacity: 0 }}
+              >
+                {children(props)}
+              </motion.div> : null}
+          </AnimatePresence>
         </ReactFocusLock>
       </OutsideClickHandler>
     </div>
