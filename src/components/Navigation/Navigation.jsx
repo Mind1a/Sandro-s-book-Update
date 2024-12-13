@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import styles from "./Navigation.module.scss";
 import { NavButton } from "../Buttons/NavButton";
 import { AnchorNavButton } from "../Buttons/AnchorNavButton";
@@ -7,6 +8,9 @@ import { SideMenu } from "../Menu/SideMenu";
 import { Languages } from "../Menu/Languages";
 
 export const Navigation = ({ isMenuOpen, handleFalse, handleToggle }) => {
+  const [currentLanguage, setCurrentLanguage] = useState(() => {
+    return localStorage.getItem("language")?.toUpperCase() || "GE";
+  });
   return (
     <header>
       <nav className={styles.nav}>
@@ -37,12 +41,15 @@ export const Navigation = ({ isMenuOpen, handleFalse, handleToggle }) => {
             {() => <Social />}
           </Dropdown>
 
-          {/* <NavButton>
-            <span className={styles.lang}>EN</span>
-          </NavButton> */}
-
-          <Dropdown icon={<span className={styles.lang}>GE</span>}>
-            {() => <Languages />}
+          <Dropdown
+            icon={<span className={styles.lang}>{currentLanguage}</span>}
+          >
+            {() => (
+              <Languages
+                currentLanguage={currentLanguage}
+                setCurrentLanguage={setCurrentLanguage}
+              />
+            )}
           </Dropdown>
         </div>
       </nav>

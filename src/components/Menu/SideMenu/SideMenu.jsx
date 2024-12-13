@@ -4,20 +4,23 @@ import { NavButton } from "../../Buttons/NavButton";
 import OutsideClickHandler from "react-outside-click-handler";
 import ReactFocusLock from "react-focus-lock";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
-
+  const { t } = useTranslation();
   return (
     <div onKeyDown={(e) => e.key === "Escape" && handleFalse()}>
       <OutsideClickHandler onOutsideClick={handleFalse}>
         <ReactFocusLock disabled={!isMenuOpen}>
-
           <NavButton onClick={handleToggle}>
-            <img src="/assets/svgs/social-links/button_burger.svg" alt="burger menu" />
+            <img
+              src="/assets/svgs/social-links/button_burger.svg"
+              alt="burger menu"
+            />
           </NavButton>
 
           <AnimatePresence>
-            {isMenuOpen &&
+            {isMenuOpen && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -26,48 +29,49 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
                 className={styles.sideMenuContainer}
               >
                 <NavButton onClick={handleFalse}>
-                  <img src="/assets/svgs/social-links/button_close.svg" alt="close" />
+                  <img
+                    src="/assets/svgs/social-links/button_close.svg"
+                    alt="close"
+                  />
                 </NavButton>
 
                 <div className={styles.sideMenu}>
-                  <Link
-                    to={"/contents"}
-                    onClick={handleFalse}
-                  >
+                  <Link to={"/contents"} onClick={handleFalse}>
                     სარჩევი
                   </Link>
                   <div className={styles.iconContainer}>
-                    <img src="/assets/svgs/side-menu-svg/menu-line-1.svg" alt="line" />
+                    <img
+                      src="/assets/svgs/side-menu-svg/menu-line-1.svg"
+                      alt="line"
+                    />
                   </div>
-                  <Link
-                    to={"/about"}
-                    onClick={handleFalse}
-                  >
+                  <Link to={"/about"} onClick={handleFalse}>
                     პროექტის შესახებ
                   </Link>
                   <div className={styles.iconContainer}>
-                    <img src="/assets/svgs/side-menu-svg/menu-line-2.svg" alt="line" />
+                    <img
+                      src="/assets/svgs/side-menu-svg/menu-line-2.svg"
+                      alt="line"
+                    />
                   </div>
-                  <Link
-                    to={"/pdf"}
-                    onClick={handleFalse}
-                  >
+                  <Link to={"/pdf"} onClick={handleFalse}>
                     წიგნის PDF ვერსია
                   </Link>
                   <div className={styles.iconContainer}>
-                    <img src="/assets/svgs/side-menu-svg/menu-line-3.svg" alt="line" />
+                    <img
+                      src="/assets/svgs/side-menu-svg/menu-line-3.svg"
+                      alt="line"
+                    />
                   </div>
-                  <Link
-                    to={"/contents"}
-                    onClick={handleFalse}
-                  >
-                    გალერეა
+                  <Link to={"/contents"} onClick={handleFalse}>
+                    {t("gallery")}
                   </Link>
                 </div>
-              </motion.div>}
+              </motion.div>
+            )}
           </AnimatePresence>
         </ReactFocusLock>
       </OutsideClickHandler>
     </div>
-  )
-}
+  );
+};
