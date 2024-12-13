@@ -1,0 +1,35 @@
+.languageChangeButton {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 46px;
+  border: 1px solid var(--color-iconBorder);
+  background-color: var(--color-secondary);
+  overflow: hidden;
+  margin-top: 1px;
+  font-size: 2rem;
+  font-family: "Sandro-Universal-Bold";
+  color: var(--color-primary);
+  cursor: pointer;
+
+  .buttonOverlay {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: ease 0.5s;
+    background-color: var(--color-secondary);
+    mix-blend-mode: difference;
+    filter: invert(1);
+  }
+}
+
+.languageChangeButton:hover {
+  .buttonOverlay {
+    left: 0;
+  }
+}
