@@ -1,0 +1,94 @@
+{
+  "ge": {
+    "translation": {
+      "book": {
+        "preface": {
+          "title": "წინასიტყვაობა"
+        },
+        "qaosidan-kosmosamde": {
+          "title": "ქაოსიდან კოსმოსამდე"
+        },
+        "yvelaze-seqsualuri-profesia": {
+          "title": "ყველაზე სექსუალური პროფესია"
+        },
+        "jadoqari": {
+          "title": "ჯადოქარი"
+        },
+        "shexvedra-leviatantan": {
+          "title": "შეხვედრა ლევიათანთან"
+        },
+        "ofisebis-amaoeba": {
+          "title": "ოფისების ამაოება"
+        },
+        "xelovnuri-inteleqti": {
+          "title": "ხელოვნური ინტელექტი"
+        },
+        "cheshmariti-maswavlebeli": {
+          "title": "ჭეშმარიტი მასწავლებელი"
+        },
+        "shushis-qila": {
+          "title": "შუშის ქილა"
+        },
+        "cifruli-samotxe": {
+          "title": "ციფრული სამოთხე"
+        },
+        "naxatebit-saubari": {
+          "title": "ნახატებით საუბარი"
+        },
+        "ukvdaveba": {
+          "title": "უკვდავება"
+        }
+      },
+      "preface-translation": {
+        "title": "წინასიტყვაობა",
+        "description": "ეს არის წინასიტყვაობის სრული ტექსტი \n\n ქართულ ენაზე"
+      }
+    }
+  },
+  "it": {
+    "translation": {
+      "book": {
+        "preface": {
+          "title": "Introduzione"
+        },
+        "qaosidan-kosmosamde": {
+          "title": "Dal caos al cosmo"
+        },
+        "yvelaze-seqsualuri-profesia": {
+          "title": "La professione più sexy"
+        },
+        "jadoqari": {
+          "title": "Il mago"
+        },
+        "shexvedra-leviatantan": {
+          "title": "Incontro con il Leviatano"
+        },
+        "ofisebis-amaoeba": {
+          "title": "Vanità degli uffici"
+        },
+        "xelovnuri-inteleqti": {
+          "title": ""
+        },
+        "cheshmariti-maswavlebeli": {
+          "title": "Un vero maestro"
+        },
+        "shushis-qila": {
+          "title": ""
+        },
+        "cifruli-samotxe": {
+          "title": ""
+        },
+        "naxatebit-saubari": {
+          "title": ""
+        },
+        "ukvdaveba": {
+          "title": "Immortalità"
+        }
+      },
+      "preface-translation": {
+        "title": "Introduzione",
+        "description": "This is the description text in Georgian for the preface."
+      }
+    }
+  }
+}

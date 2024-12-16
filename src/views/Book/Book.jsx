@@ -26,12 +26,12 @@ export const Book = ({ isMenuOpen }) => {
     handleNextClick,
     handlePrevClick,
     handleStart,
-    handlePause
+    handlePause,
   } = useBookPlayer(book, bookData, books, 233);
 
   useEffect(() => {
     isMenuOpen ? handlePause() : handleStart();
-  }, [isMenuOpen])
+  }, [isMenuOpen]);
 
   return (
     <div className={styles.bookPage}>
@@ -65,7 +65,7 @@ export const Book = ({ isMenuOpen }) => {
       >
         <Loader
           trackProgress
-          width={!isMenuOpen ? `${width * 100}%` : '0%'}
+          width={!isMenuOpen ? `${width * 100}%` : "0%"}
           initialWidth={initialWidth}
           isSeeking={isSeeking}
           transition={{ duration: 0 }}
