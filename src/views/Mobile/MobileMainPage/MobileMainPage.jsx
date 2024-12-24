@@ -9,35 +9,33 @@ import { clamp, getTimeLeft } from "../../../utils/book";
 const swipeMargin = 50;
 
 const ChapterImages = ({ scrollToPreface, scrollToPlayer, setBook }) => {
-  const chapters = Object.entries(bookData).map(
-    ([book, { title }], index) => {
-      const imgSrc = `/assets/svgs/responsive-svg-TOC/${index + 1}.svg`;
-      return (
-        <div
-          onClick={() => {
-            if (title === "წინასიტყვაობა") {
-              scrollToPreface();
-            } else {
-              scrollToPlayer();
-            }
+  const chapters = Object.entries(bookData).map(([book, { title }], index) => {
+    const imgSrc = `/assets/svgs/responsive-svg-TOC/${index + 1}.svg`;
+    return (
+      <div
+        onClick={() => {
+          if (title === "წინასიტყვაობა") {
+            scrollToPreface();
+          } else {
+            scrollToPlayer();
+          }
 
-            setBook(book);
-          }}
-          className={styles.contents}
-          key={index}
-        >
-          <div className={styles.contentsChild}>
-            <div className={styles.chapter}>
-              <a>{title}</a>
-            </div>
-            <div className={styles.spanIconContents}>
-              <img key={title} src={imgSrc} alt={`Chapter ${index + 1}`} />
-            </div>
+          setBook(book);
+        }}
+        className={styles.contents}
+        key={index}
+      >
+        <div className={styles.contentsChild}>
+          <div className={styles.chapter}>
+            <a>{title}</a>
+          </div>
+          <div className={styles.spanIconContents}>
+            <img key={title} src={imgSrc} alt={`Chapter ${index + 1}`} />
           </div>
         </div>
-      );
-    }
-  );
+      </div>
+    );
+  });
 
   return <>{chapters}</>;
 };
@@ -228,7 +226,11 @@ export const MobileMainPage = () => {
         </div>
       </section>
       <section ref={sectionRef} className={styles.mobileContents}>
-        <ChapterImages scrollToPlayer={scrollToPlayer} scrollToPreface={scrollToPreface} setBook={setBook} />
+        <ChapterImages
+          scrollToPlayer={scrollToPlayer}
+          scrollToPreface={scrollToPreface}
+          setBook={setBook}
+        />
       </section>
       <section className={styles.MobilePdf}>
         <div className={styles.mobilePdfContent}>

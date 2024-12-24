@@ -64,7 +64,7 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
                     />
                   </div>
                   <Link to={"/contents"} onClick={handleFalse}>
-                    {t("gallery")}
+                    გალერია
                   </Link>
                 </div>
               </motion.div>

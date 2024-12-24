@@ -4,8 +4,15 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
 import { bookData } from "../../bookData";
+import { useTranslation } from "react-i18next";
 
 export const Contents = () => {
+  const { t } = useTranslation();
+
+  const filteredBooks = Object.entries(bookData).filter(([book]) => {
+    const prefix = `book.${book}.`;
+    return t(prefix + "title") !== "";
+  });
 
   return (
     <>
@@ -19,8 +26,9 @@ export const Contents = () => {
             transition={{ duration: 1.5 }}
             className={styles.contentsChapter}
           >
-            {Object.entries(bookData).map(
-              ([book, { img, imgWidth, imgHeight, title }]) => (
+            {filteredBooks.map(([book, { img, imgWidth, imgHeight }]) => {
+              const prefix = `book.${book}.`;
+              return (
                 <div key={book} className={styles.Chapter}>
                   <Link
                     className={styles.chapterRoute}
@@ -28,15 +36,15 @@ export const Contents = () => {
                   >
                     <img
                       src={img}
-                      alt={title}
+                      alt={t(prefix + "title")}
                       width={imgWidth}
                       height={imgHeight}
                     />
-                    <span>{title}</span>
+                    <span>{t(prefix + "title")}</span>
                   </Link>
                 </div>
-              )
-            )}
+              );
+            })}
           </motion.div>
         </div>
       </div>
