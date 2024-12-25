@@ -63,7 +63,7 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
                       alt="line"
                     />
                   </div>
-                  <Link to={"/contents"} onClick={handleFalse}>
+                  <Link to={"/gallery"} onClick={handleFalse}>
                     გალერია
                   </Link>
                 </div>
