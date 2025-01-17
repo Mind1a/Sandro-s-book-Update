@@ -2,6 +2,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { Home } from "./views/Home";
 import { Contents } from "./views/Contents";
 import { Book } from "./views/Book";
+import { Gallery } from "./views/Gallery";
 import "./scss/global.scss";
 import { Preface } from "./views/Preface/Preface";
 import { MobileMainPage } from "./views/Mobile/MobileMainPage";
@@ -19,9 +20,14 @@ export default function App() {
 
   return (
     <>
-      {deviceSize !== "xs" && !noNavigationPaths.includes(location.pathname) &&
-        <Navigation isMenuOpen={isMenuOpen} handleFalse={handleFalse} handleToggle={handleToggle} />
-      }
+      {deviceSize !== "xs" &&
+        !noNavigationPaths.includes(location.pathname) && (
+          <Navigation
+            isMenuOpen={isMenuOpen}
+            handleFalse={handleFalse}
+            handleToggle={handleToggle}
+          />
+        )}
 
       <Routes>
         <Route
@@ -46,7 +52,17 @@ export default function App() {
         />
         <Route
           path="/books/:book"
-          element={deviceSize === "xs" ? <MobileMainPage /> : <Book isMenuOpen={isMenuOpen} />}
+          element={
+            deviceSize === "xs" ? (
+              <MobileMainPage />
+            ) : (
+              <Book isMenuOpen={isMenuOpen} />
+            )
+          }
+        />
+        <Route
+          path="/gallery"
+          element={deviceSize === "xs" ? <MobileMainPage /> : <Gallery />}
         />
       </Routes>
       {/* <Route path="*" element={<NotFound />} /> */}

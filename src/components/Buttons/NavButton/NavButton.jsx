@@ -5,18 +5,21 @@ export const NavButton = ({
   variant,
   type = "button",
   isAnimated = true,
-  children
+  children,
+  additionalStyles = {},
 }) => {
-
   return (
     <button
       onClick={onClick}
       type={type}
-      className={variant ? `${styles.navButton} ${variant}` : `${styles.navButton}`}
-    // for default style overriding use more specificity on your variant class
+      className={
+        variant ? `${styles.navButton} ${variant}` : `${styles.navButton}`
+      }
+      style={additionalStyles}
+      // for default style overriding use more specificity on your variant class
     >
       {children}
       {isAnimated ? <div className={styles.buttonOverlay}></div> : null}
     </button>
-  )
-}
+  );
+};
