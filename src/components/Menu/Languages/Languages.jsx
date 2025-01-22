@@ -2,11 +2,16 @@ import styles from "./Languages.module.scss";
 import { LanguageChangeButton } from "../../Buttons/LanguageChangeButton";
 import i18n from "../../../utils/i18n";
 
-export const Languages = ({ currentLanguage, setCurrentLanguage }) => {
+export const Languages = ({
+  currentLanguage,
+  setCurrentLanguage,
+  handleFalse,
+}) => {
   const handleLanguageChange = (language) => {
     i18n.changeLanguage(language);
     setCurrentLanguage(language.toUpperCase());
     localStorage.setItem("language", language);
+    handleFalse();
   };
 
   return (

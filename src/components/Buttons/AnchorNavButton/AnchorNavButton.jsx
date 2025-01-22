@@ -6,17 +6,22 @@ export const AnchorNavButton = ({
   variant,
   target,
   isAnimated = true,
-  children
+  children,
+  onclick,
 }) => {
-
   return (
     <Link
+      onClick={onclick}
       to={href}
       target={target}
-      className={variant ? `${styles.anchorNavButton} ${variant}` : `${styles.anchorNavButton}`}
+      className={
+        variant
+          ? `${styles.anchorNavButton} ${variant}`
+          : `${styles.anchorNavButton}`
+      }
     >
       {children}
       {isAnimated ? <div className={styles.buttonOverlay}></div> : null}
     </Link>
-  )
-}
+  );
+};
