@@ -38,14 +38,15 @@ export const Navigation = ({ isMenuOpen, handleFalse, handleToggle }) => {
               />
             }
           >
-            {() => <Social />}
+            {({ handleFalse }) => <Social handleFalse={handleFalse} />}
           </Dropdown>
 
           <Dropdown
             icon={<span className={styles.lang}>{currentLanguage}</span>}
           >
-            {() => (
+            {({ handleFalse }) => (
               <Languages
+                handleFalse={handleFalse}
                 currentLanguage={currentLanguage}
                 setCurrentLanguage={setCurrentLanguage}
               />

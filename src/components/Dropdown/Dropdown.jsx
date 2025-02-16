@@ -13,10 +13,15 @@ export const Dropdown = ({
   handleAnimate,
   handleTransition,
   handleExit,
-  children
+  children,
 }) => {
-  const { toggle: isClicked, handleFalse, handleTrue, handleToggle } = useToggle();
-  const props = { isClicked, handleFalse, handleTrue };
+  const {
+    toggle: isClicked,
+    handleFalse,
+    handleTrue,
+    handleToggle,
+  } = useToggle();
+  const props = { isClicked, handleFalse, handleTrue, handleToggle };
 
   // gives us opportunity to pass props inside children components with renderProps approach (children(props)).
   // https://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children
@@ -27,11 +32,9 @@ export const Dropdown = ({
     >
       <OutsideClickHandler onOutsideClick={handleFalse}>
         <ReactFocusLock disabled={!isClicked}>
-          <NavButton onClick={handleToggle}>
-            {icon}
-          </NavButton>
+          <NavButton onClick={handleToggle}>{icon}</NavButton>
           <AnimatePresence>
-            {isClicked ?
+            {isClicked ? (
               <motion.div
                 initial={handleInitial || { opacity: 0 }}
                 animate={handleAnimate || { opacity: 1 }}
@@ -39,10 +42,11 @@ export const Dropdown = ({
                 exit={handleExit || { opacity: 0 }}
               >
                 {children(props)}
-              </motion.div> : null}
+              </motion.div>
+            ) : null}
           </AnimatePresence>
         </ReactFocusLock>
       </OutsideClickHandler>
     </div>
-  )
-}
+  );
+};

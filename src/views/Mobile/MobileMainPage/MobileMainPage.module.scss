@@ -139,6 +139,7 @@
 
     .contents {
       .contentsChild {
+        cursor: pointer;
         display: grid;
         grid-template-columns: auto max-content;
         grid-template-areas: "chapter page";
@@ -271,7 +272,8 @@
           cursor: pointer;
 
           .playerBurger {
-            svg {}
+            svg {
+            }
           }
         }
       }
