@@ -1,11 +1,19 @@
-.navButton {
+.languageChangeButton {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 60px;
   height: 46px;
   border: 1px solid var(--color-iconBorder);
   background-color: var(--color-secondary);
-  cursor: pointer;
   overflow: hidden;
+  margin-top: 1px;
+  font-size: 2rem;
+  font-family: "Sandro-Universal-Bold";
+  color: var(--color-primary);
+  cursor: pointer;
 
   .buttonOverlay {
     position: absolute;
@@ -20,7 +28,7 @@
   }
 }
 
-.navButton:hover {
+.languageChangeButton:hover {
   .buttonOverlay {
     left: 0;
   }

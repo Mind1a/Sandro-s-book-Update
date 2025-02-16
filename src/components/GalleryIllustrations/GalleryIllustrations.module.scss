@@ -1,0 +1,25 @@
+.galleryWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+}
+
+.galleryContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 37px;
+  align-items: center;
+  justify-content: center;
+  max-width: 1283px;
+  margin: 27px auto;
+}
+
+.placeholder {
+  flex: 1;
+}
+
+.galleryImage {
+  width: 293px;
+  height: 293px;
+  cursor: pointer;
+}
