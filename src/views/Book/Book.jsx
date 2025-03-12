@@ -7,10 +7,19 @@ import { motion } from "framer-motion";
 import { AudioBar } from "../../components/AudioBar";
 
 import { useBookPlayer } from "../../hooks/useBookPlayer";
+import { useTranslation } from "react-i18next";
 
 export const Book = ({ isMenuOpen }) => {
   const { book } = useParams();
-  const { title, illustration } = bookData[book];
+  const { t } = useTranslation();
+  const { illustration } = bookData[book];
+
+  const titleInCurrentLang = t(`book.${book}.title`);
+
+  const title =
+    titleInCurrentLang !== ""
+      ? titleInCurrentLang
+      : t(`book.${book}.title`, { lng: "ge" });
 
   const {
     width,

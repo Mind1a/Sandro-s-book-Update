@@ -2,15 +2,25 @@ import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRelativeWidth } from "./useRelativeWidth";
 import { clamp, getWidth } from "../utils/book";
+import { useTranslation } from "react-i18next";
 
 export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
   const navigate = useNavigate();
+  const { i18n } = useTranslation();
 
-  const { audio: audioSrc } = useMemo(() => {
-    return bookData[book];
-  }, [book]);
+  const currentLanguage = i18n.language || "ge";
+  const audioSrc = useMemo(
+    () => bookData[book]?.audio?.[currentLanguage],
+    [book, currentLanguage]
+  );
 
-  const audio = useMemo(() => new Audio(audioSrc), [book]);
+  const audio = useMemo(() => new Audio(audioSrc), [audioSrc]);
+
+  // const { audio: audioSrc } = useMemo(() => {
+  //   return bookData[book];
+  // }, [book]);
+
+  // const audio = useMemo(() => new Audio(audioSrc), [book]);
 
   const [isSeeking, setIsSeeking] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -114,21 +124,33 @@ export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
   };
 
   const handlePrevClick = () => {
-    const index = books.findIndex((bookName) => {
-      return bookName === book;
-    });
-    {
-      book === "qaosidan-kosmosamde"
-        ? navigate("/preface")
-        : navigate(`/books/${books[clamp(1, index - 1, books.length - 1)]}`);
+    let index = books.findIndex((bookName) => bookName === book);
+
+    while (index > 0) {
+      index--;
+      const prevBook = books[index];
+      if (bookData[prevBook]?.audio?.[currentLanguage]) {
+        navigate(`/books/${prevBook}`);
+        return;
+      }
+    }
+
+    if (book === "qaosidan-kosmosamde") {
+      navigate("/preface");
     }
   };
 
   const handleNextClick = () => {
-    const index = books.findIndex((bookName) => {
-      return bookName === book;
-    });
-    navigate(`/books/${books[clamp(1, index + 1, books.length - 1)]}`);
+    let index = books.findIndex((bookName) => bookName === book);
+
+    while (index < books.length - 1) {
+      index++;
+      const nextBook = books[index];
+      if (bookData[nextBook]?.audio?.[currentLanguage]) {
+        navigate(`/books/${nextBook}`);
+        return;
+      }
+    }
   };
 
   return {
@@ -146,6 +168,6 @@ export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
     handleNextClick,
     handlePrevClick,
     handleStart,
-    handlePause
+    handlePause,
   };
 };
