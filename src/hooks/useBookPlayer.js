@@ -16,6 +16,14 @@ export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
 
   const audio = useMemo(() => new Audio(audioSrc), [audioSrc]);
 
+  useEffect(() => {
+    const audioExists = bookData[book]?.audio?.[currentLanguage];
+
+    if (!audioExists) {
+      navigate("/");
+    }
+  }, [currentLanguage]);
+
   // const { audio: audioSrc } = useMemo(() => {
   //   return bookData[book];
   // }, [book]);
