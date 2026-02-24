@@ -138,28 +138,28 @@ const translations = {
             "This is the description text in English for the preface.",
         },
         "qaosidan-kosmosamde": {
-          title: "",
+          title: "From Chaos to Cosmos",
         },
         "yvelaze-seqsualuri-profesia": {
-          title: "",
+          title: "The Most Sexual Profession",
         },
         jadoqari: {
-          title: "",
+          title: "The Sorcerer",
         },
         "shexvedra-leviatantan": {
           title: "",
         },
         "ofisebis-amaoeba": {
-          title: "",
+          title: "The Vanity of Offices",
         },
         "xelovnuri-inteleqti": {
           title: "",
         },
         "cheshmariti-maswavlebeli": {
-          title: "",
+          title: "The True Teacher",
         },
         "shushis-qila": {
-          title: "",
+          title: "The Glass",
         },
         "cifruli-samotxe": {
           title: "",
@@ -168,7 +168,7 @@ const translations = {
           title: "",
         },
         ukvdaveba: {
-          title: "",
+          title: "Immortality",
         },
       },
       "preface-translation": {
