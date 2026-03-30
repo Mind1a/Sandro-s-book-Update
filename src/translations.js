@@ -129,6 +129,72 @@ const translations = {
       },
     },
   },
+  en: {
+    translation: {
+      book: {
+        preface: {
+          title: "Foreword",
+          description:
+            "This is the description text in English for the preface.",
+        },
+        "qaosidan-kosmosamde": {
+          title: "",
+        },
+        "yvelaze-seqsualuri-profesia": {
+          title: "",
+        },
+        jadoqari: {
+          title: "",
+        },
+        "shexvedra-leviatantan": {
+          title: "",
+        },
+        "ofisebis-amaoeba": {
+          title: "",
+        },
+        "xelovnuri-inteleqti": {
+          title: "",
+        },
+        "cheshmariti-maswavlebeli": {
+          title: "",
+        },
+        "shushis-qila": {
+          title: "",
+        },
+        "cifruli-samotxe": {
+          title: "",
+        },
+        "naxatebit-saubari": {
+          title: "",
+        },
+        ukvdaveba: {
+          title: "",
+        },
+      },
+      "preface-translation": {
+        title: "Foreword",
+        text: `Sandro Asatiani's book "From Chaos to Cosmos" is a collection of short stories, parables, I would say. It is a contemporary manuscript where, sometimes through hints, sometimes through direct indications, one finds phrases, images, and words that function as transit points into terra incognita, into digital territories, where no one has yet set foot, or where someone is already there and needs a psychogeographical, interactive guide, "hints," in order to find the "true teacher" or a safe path to the final round of a computer game, where countless secrets will be unveiled for them.\n
+        "Life is somewhat like a computer game. The main hero's adventure, full of surprises, begins. He constantly has to make a choice. Each choice, in turn, is followed by a new surprise. No one knows where the game will lead him, to an enlightened victory or an unexpected end.”\n
+        Digital technologies, as never before, need their own, new mythos. Despite the fact that technologies are developing at the speed of light, we, humans, still live in the reality of ancient, unconscious archetypes. Sandro tries to discover these archetypes in the digital world and, if possible, to invent their new version, adapted to contemporary technologies. «Hevel havalim» — a creator of a creative advertisement says this phrase in passing, and we hear an echo from a text written thousands of years ago. In reality, the archetypes encoded in humanity's unconscious still function in our depths; the main thing is how we can use and manifest them in the new, digital world.\n
+        The title itself, "From Chaos to Cosmos," hints at something even more interesting: in ancient myths, from the primordial chaos (which in itself already contains potential cosmoses) – the cosmos (order) is, as a rule, created by cultural heroes or demiurges.\n
+        Those who study code today, who create digital worlds, chatbots, applications, and programs – they are precisely the young demiurges, little gods, who bring order to chaos in order to create a cosmos, a new order, from it.\n
+        Thus, this book is intended for these young demiurges.\n
+        All the unfulfilled dreams of alchemists or sorcerers are being created today on the keyboards of these demiurges. Incantations have been replaced by codes; esoteric Kabbalistic calculations by the mathematical power of computers; the revelations of angels (which in Greek means "messenger") by chatbots and virtual reality; initiation practices by the encounter with the state "Leviathan"; meditations by computer games; deities by the virtual beings of artificial intelligence; temples by servers.\n
+        "Before the young sorcerer's eyes, on the computer screen, the world he had created was depicted," writes Sandro, deftly juggling ancient archetypes and ultra-modern technologies.\n
+        The main charm of the book is precisely this blending of ancient archetypes and humanity's path toward technological singularity. The text, in every sentence, branches into several transit points where different treasures are stored. The mission of the contemporary demiurge or cultural hero is to create from the existing chaos that cosmos where we will all find ourselves in a completely new, unknowable reality, full of mysteries and revelations. At no stage in history have we had such illuminative, divine possibilities.\n
+        Young demiurge, do not be afraid of the snares and traps that social or cultural programming lays before you. Decipher this manuscript and dare to create something revolutionary, something great, something magical, that will change "reality" as we know it, because the time has come for the reality imposed on us to radically change, and for us to step into the world of technological magic. Everything is in your hands; the keyboard is at your fingertips.\n
+        And this book by Sandro Asatiani is a guide on this wondrous journey.\n`,
+        author: "Zura Jishkariani",
+      },
+      "about-project-translation": {
+        title: "About the Project",
+        text: `When we think of a book, we imagine an object printed on paper, bound in a hard or soft cover. This conception of ours may no longer correspond to reality at all today. Today, a book often has the form of a file. Such a book possesses no material shell whatsoever. It exists only in the form of binary data, written into a computing device. Its form is determined by the device into which the book is loaded.\n
+        In different periods of humanity's development, the book was published in different forms. The most ancient Sumerian books were clay tablets. From our perspective, they look more like bricks than books. The Egyptians wrote books on papyrus, and due to the material, such books had the form of long scrolls. Medieval manuscript books, folios, were of a very large size. You couldn't be alone in your room with such a book; you could not place such a book on your lap. They would place them on specially arranged tables and read them that way.\n
+        Along with the change in the book's external form, the book's author, its publisher, and the book's reader also changed. The story itself, which the book tells, also changed. What does not change are the limitless possibilities that the book gives us. To travel where we have not been; to share in the stories that have not happened to us. To share in the ideas that the author offers us.\n
+        This book is an internet edition of a book. The stories told by this book are about technologies and the magical possibilities of the modern human. A version of this book printed on paper does not exist. Reading or listening to the stories told in the book is possible only thanks to technologies.\n`,
+      },
+    },
+  },
 };
 
 export default translations;

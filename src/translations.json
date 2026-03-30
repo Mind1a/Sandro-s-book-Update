@@ -90,5 +90,51 @@
         "description": "This is the description text in Georgian for the preface."
       }
     }
+  },
+  "en": {
+    "translation": {
+      "book": {
+        "preface": {
+          "title": "Foreword"
+        },
+        "qaosidan-kosmosamde": {
+          "title": ""
+        },
+        "yvelaze-seqsualuri-profesia": {
+          "title": ""
+        },
+        "jadoqari": {
+          "title": ""
+        },
+        "shexvedra-leviatantan": {
+          "title": ""
+        },
+        "ofisebis-amaoeba": {
+          "title": ""
+        },
+        "xelovnuri-inteleqti": {
+          "title": ""
+        },
+        "cheshmariti-maswavlebeli": {
+          "title": ""
+        },
+        "shushis-qila": {
+          "title": ""
+        },
+        "cifruli-samotxe": {
+          "title": ""
+        },
+        "naxatebit-saubari": {
+          "title": ""
+        },
+        "ukvdaveba": {
+          "title": ""
+        }
+      },
+      "preface-translation": {
+        "title": "Foreword",
+        "description": "This is the description text in English for the preface."
+      }
+    }
   }
 }
