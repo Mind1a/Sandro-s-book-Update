@@ -39,6 +39,16 @@ const translations = {
           title: "უკვდავება",
         },
       },
+      ui: {
+        tableOfContents: "სარჩევი",
+        getStarted: "დაწყება",
+        menu: {
+          contents: "სარჩევი",
+          about: "პროექტის შესახებ",
+          pdf: "წიგნის PDF ვერსია",
+          gallery: "გალერია",
+        },
+      },
       "preface-translation": {
         title: "წინასიტყვაობა",
         text: `სანდრო ასათიანის წიგნი „ქაოსიდან კოსმოსამდე“ მცირე მოთხრობების, მე ვიტყოდი, იგავების ნაკრებია. თანამედროვე მანუსკრიპტი, სადაც ზოგან მინიშნებებით, ზოგან პირდაპირ მითითებულია ფრაზები, სურათ-ხატები და სიტყვები, რომლებიც სატრანზიტო პუნქტების დანიშნულებას ასრულებს terra incognita-ში, ციფრულ ტერიტორიებზე, სადაც ან ჯერ არავის დაუდგამს ფეხი, ან უკვე მანდაა და სჭირდება ფსიქოგეოგრაფიული, ინტერაქტიული გზამკვლევი, „მინიშნებები“, რათა იპოვოს „ჭეშმარიტი მასწავლებელი“ ან უსაფრთხო გზა კომპიუტერული თამაშის საბოლოო ტურისკენ, სადაც მისთვის უამრავ საიდუმლოს აეხდება ფარდა.\n
@@ -103,6 +113,16 @@ const translations = {
         },
         ukvdaveba: {
           title: "Immortalità",
+        },
+      },
+      ui: {
+        tableOfContents: "Indice dei contenuti",
+        getStarted: "Inizia",
+        menu: {
+          contents: "Indice dei contenuti",
+          about: "Informazioni sul progetto",
+          pdf: "Versione PDF del libro",
+          gallery: "Galleria",
         },
       },
       "preface-translation": {

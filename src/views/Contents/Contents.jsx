@@ -17,7 +17,7 @@ export const Contents = () => {
   return (
     <>
       <Loader width={["0%", "100%"]} />
-      <h4 className={styles.title}>სარჩევი</h4>
+      <h4 className={styles.title}>{t("ui.tableOfContents")}</h4>
       <div className={styles.contentsPage}>
         <div className={styles.contentsContainer}>
           <motion.div

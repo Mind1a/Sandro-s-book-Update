@@ -37,7 +37,7 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
 
                 <div className={styles.sideMenu}>
                   <Link to={"/contents"} onClick={handleFalse}>
-                    სარჩევი
+                    {t("ui.menu.contents")}
                   </Link>
                   <div className={styles.iconContainer}>
                     <img
@@ -46,7 +46,7 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
                     />
                   </div>
                   <Link to={"/about"} onClick={handleFalse}>
-                    პროექტის შესახებ
+                    {t("ui.menu.about")}
                   </Link>
                   <div className={styles.iconContainer}>
                     <img
@@ -55,7 +55,7 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
                     />
                   </div>
                   <Link to={"/pdf"} onClick={handleFalse}>
-                    წიგნის PDF ვერსია
+                    {t("ui.menu.pdf")}
                   </Link>
                   <div className={styles.iconContainer}>
                     <img
@@ -64,7 +64,7 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
                     />
                   </div>
                   <Link to={"/gallery"} onClick={handleFalse}>
-                    გალერია
+                    {t("ui.menu.gallery")}
                   </Link>
                 </div>
               </motion.div>
