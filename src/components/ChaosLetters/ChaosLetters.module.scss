@@ -4,11 +4,17 @@
   @include position(10%, 80%);
   transform: translate(-10%, -80%);
   mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+
+  display: flex;              // ✅ THIS is the key
+  align-items: flex-end;      // aligns bottoms nicely
+  justify-content: center;
+  gap: 6px;                   // spacing between letters
 
   img {
     mix-blend-mode: difference;
     filter: invert(1);
-    margin-left: 3px;
+    margin-left: 0;           // ❌ remove this (conflicts with gap)
   }
 }
 

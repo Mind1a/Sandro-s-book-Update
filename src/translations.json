@@ -41,10 +41,11 @@
       },
       "preface-translation": {
         "title": "წინასიტყვაობა",
-        "description": "ეს არის წინასიტყვაობის სრული ტექსტი \n\n ქართულ ენაზე"
+        "description": "ეს არის წინასიტყვაობის სრული ტექსტი ქართულ ენაზე."
       }
     }
   },
+
   "it": {
     "translation": {
       "book": {
@@ -67,19 +68,19 @@
           "title": "Vanità degli uffici"
         },
         "xelovnuri-inteleqti": {
-          "title": ""
+          "title": "Intelligenza artificiale"
         },
         "cheshmariti-maswavlebeli": {
           "title": "Un vero maestro"
         },
         "shushis-qila": {
-          "title": ""
+          "title": "Il barattolo di vetro"
         },
         "cifruli-samotxe": {
-          "title": ""
+          "title": "Paradiso digitale"
         },
         "naxatebit-saubari": {
-          "title": ""
+          "title": "Parlare con le immagini"
         },
         "ukvdaveba": {
           "title": "Immortalità"
@@ -87,10 +88,11 @@
       },
       "preface-translation": {
         "title": "Introduzione",
-        "description": "This is the description text in Georgian for the preface."
+        "description": "Questo è il testo della prefazione in italiano."
       }
     }
   },
+
   "en": {
     "translation": {
       "book": {
@@ -107,25 +109,25 @@
           "title": "The Sorcerer"
         },
         "shexvedra-leviatantan": {
-          "title": ""
+          "title": "Meeting with Leviathan"
         },
         "ofisebis-amaoeba": {
           "title": "The Vanity of Offices"
         },
         "xelovnuri-inteleqti": {
-          "title": ""
+          "title": "Artificial Intelligence"
         },
         "cheshmariti-maswavlebeli": {
           "title": "The True Teacher"
         },
         "shushis-qila": {
-          "title": "The Glass"
+          "title": "The Glass Jar"
         },
         "cifruli-samotxe": {
-          "title": ""
+          "title": "Digital Paradise"
         },
         "naxatebit-saubari": {
-          "title": ""
+          "title": "Talking with Images"
         },
         "ukvdaveba": {
           "title": "Immortality"
