@@ -9,5 +9,29 @@
     color: white;
     cursor: pointer;
     padding: 3px;
+    transition: color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      color: var(--color-contentHover);
+    }
+  }
+}
+
+.pageButton {
+  &.active {
+    color: var(--color-contentHover);
+    font-weight: bold;
+  }
+}
+
+.arrow {
+  &.disabled {
+    color: var(--color-contentHover);
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover {
+      color: var(--color-contentHover);
+    }
   }
 }

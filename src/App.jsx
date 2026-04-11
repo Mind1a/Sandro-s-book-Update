@@ -1,4 +1,6 @@
 import { Route, Routes, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 import { Home } from "./views/Home";
 import { Contents } from "./views/Contents";
 import { Book } from "./views/Book";
@@ -16,7 +18,43 @@ export default function App() {
   const deviceSize = useDeviceSize();
   const location = useLocation();
   const { toggle: isMenuOpen, handleToggle, handleFalse } = useToggle();
+  const { i18n } = useTranslation();
+
   const noNavigationPaths = ["/"];
+
+  const pageTitles = {
+    ge: {
+      "/": "ქაოსიდან კოსმოსამდე",
+      "/contents": "სარჩევი",
+      "/about": "პროექტის შესახებ",
+      "/pdf": "PDF",
+      "/preface": "წინასიტყვაობა",
+      "/gallery": "გალერია",
+    },
+    en: {
+      "/": "From Chaos to Cosmos",
+      "/contents": "Table of Contents",
+      "/about": "About the Project",
+      "/pdf": "PDF",
+      "/preface": "Foreword",
+      "/gallery": "Gallery",
+    },
+    it: {
+      "/": "Dal caos al cosmo",
+      "/contents": "Indice dei contenuti",
+      "/about": "Informazioni sul progetto",
+      "/pdf": "PDF",
+      "/preface": "Introduzione",
+      "/gallery": "Galleria",
+    },
+  };
+
+  useEffect(() => {
+    const lang = i18n.language.split("-")[0];
+    const titles = pageTitles[lang] || pageTitles.ge;
+    const pageTitle = titles[location.pathname] || "ქაოსიდან კოსმოსამდე";
+    document.title = pageTitle;
+  }, [location.pathname, i18n.language]);
 
   return (
     <>
