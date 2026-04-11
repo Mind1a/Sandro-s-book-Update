@@ -7,9 +7,24 @@ import { bookData } from "../../bookData";
 import { useTranslation } from "react-i18next";
 
 export const Contents = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-  const filteredBooks = Object.entries(bookData).filter(([book]) => {
+  const currentLanguage = i18n.language;
+  const languageKey = currentLanguage.split("-")[0];
+
+  const filteredBooks = Object.entries(bookData).filter(([book, data]) => {
+    if (book !== "preface") {
+      const shouldRequireAudio =
+        currentLanguage.startsWith("en") || currentLanguage.startsWith("it");
+
+      if (shouldRequireAudio) {
+        const hasAudioForLanguage = Boolean(data?.audio?.[languageKey]);
+        if (!hasAudioForLanguage) {
+          return false;
+        }
+      }
+    }
+
     const prefix = `book.${book}.`;
     return t(prefix + "title") !== "";
   });
@@ -17,7 +32,7 @@ export const Contents = () => {
   return (
     <>
       <Loader width={["0%", "100%"]} />
-      <h4 className={styles.title}>სარჩევი</h4>
+      <h4 className={styles.title}>{t("ui.tableOfContents")}</h4>
       <div className={styles.contentsPage}>
         <div className={styles.contentsContainer}>
           <motion.div

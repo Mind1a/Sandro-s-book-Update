@@ -8,6 +8,7 @@ export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
   const navigate = useNavigate();
 
   const [lang, setLang] = useState(i18n.language || "ge");
+  const languageKey = (lang || "ge").split("-")[0];
 
   useEffect(() => {
     const handleLangChange = (lang) => setLang(lang);
@@ -20,10 +21,30 @@ export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
     if (!audioEntry) return null;
 
     if (typeof audioEntry === "object") {
-      return audioEntry[lang] || audioEntry.ge || null;
-      return audioEntry;
+      if (languageKey === "en" || languageKey === "it") {
+        return audioEntry[languageKey] || null;
+      }
+
+      return audioEntry[languageKey] || audioEntry.ge || null;
     }
-  }, [book, lang, bookData]);
+
+    return audioEntry;
+  }, [book, languageKey, bookData]);
+
+  const playableBooks = useMemo(() => {
+    const contentBooks = books.filter((bookName) => bookName !== "preface");
+
+    if (languageKey !== "en" && languageKey !== "it") {
+      return contentBooks;
+    }
+
+    return contentBooks.filter((bookName) => {
+      const audioEntry = bookData[bookName]?.audio;
+      return Boolean(
+        audioEntry && typeof audioEntry === "object" && audioEntry[languageKey],
+      );
+    });
+  }, [books, bookData, languageKey]);
 
   const audio = useMemo(
     () => (audioSrc ? new Audio(audioSrc) : null),
@@ -40,6 +61,13 @@ export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
   const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
+    if (!audio) {
+      setIsPaused(true);
+      setDuration(0);
+      setCurrentTime(0);
+      return;
+    }
+
     audio.play().catch((err) => {
       console.log(err);
       setIsPaused(true);
@@ -82,12 +110,16 @@ export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
   }, [audio, book, initialWidth, isSeeking, duration]);
 
   useEffect(() => {
+    if (!audio) return;
+
     if (audio.paused) {
       setWidth(getWidth(initialWidth, duration, currentTime));
     }
-  }, [initialWidth]);
+  }, [audio, initialWidth, duration, currentTime]);
 
   const handleStart = () => {
+    if (!audio) return;
+
     audio.play().catch((err) => {
       console.log(err);
       setIsPaused(true);
@@ -95,10 +127,14 @@ export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
   };
 
   const handlePause = () => {
+    if (!audio) return;
+
     audio.pause();
   };
 
   const handlePlayToggle = () => {
+    if (!audio) return;
+
     if (audio.paused) {
       handleStart();
     } else {
@@ -112,6 +148,8 @@ export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
   };
 
   const handleDragStop = (percentage) => {
+    if (!audio || !audio.duration) return;
+
     const newTime = audio.duration * percentage;
     audio.currentTime = newTime;
     setCurrentTime(newTime);
@@ -132,21 +170,37 @@ export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
   };
 
   const handlePrevClick = () => {
-    const index = books.findIndex((bookName) => {
+    const index = playableBooks.findIndex((bookName) => {
       return bookName === book;
     });
-    {
-      book === "qaosidan-kosmosamde"
-        ? navigate("/preface")
-        : navigate(`/books/${books[clamp(1, index - 1, books.length - 1)]}`);
+
+    if (!playableBooks.length) {
+      navigate("/preface");
+      return;
     }
+
+    if (index <= 0) {
+      navigate("/preface");
+      return;
+    }
+
+    navigate(`/books/${playableBooks[index - 1]}`);
   };
 
   const handleNextClick = () => {
-    const index = books.findIndex((bookName) => {
+    if (!playableBooks.length) return;
+
+    const index = playableBooks.findIndex((bookName) => {
       return bookName === book;
     });
-    navigate(`/books/${books[clamp(1, index + 1, books.length - 1)]}`);
+
+    if (index === -1) {
+      navigate(`/books/${playableBooks[0]}`);
+      return;
+    }
+
+    const nextIndex = clamp(0, index + 1, playableBooks.length - 1);
+    navigate(`/books/${playableBooks[nextIndex]}`);
   };
 
   return {

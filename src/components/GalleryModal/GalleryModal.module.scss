@@ -26,13 +26,20 @@
 
     .modalInfo {
       display: flex;
-      margin-left: 20px;
-    }
-
-    .modalInfo {
-      display: flex;
       flex-direction: column;
       color: white;
+      margin-left: 20px;
+      margin-top: 68px;
+      padding-right: 24px;
+
+      h2 {
+        margin: 0 0 14px;
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.5;
+      }
     }
   }
 }

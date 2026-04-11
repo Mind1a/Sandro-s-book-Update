@@ -1,16 +1,39 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
 import styles from "./Book.module.scss";
 import { bookData, books } from "../../bookData";
 import { motion } from "framer-motion";
 import { AudioBar } from "../../components/AudioBar";
+import { useTranslation } from "react-i18next";
 
 import { useBookPlayer } from "../../hooks/useBookPlayer";
 
 export const Book = ({ isMenuOpen }) => {
   const { book } = useParams();
-  const { title, illustration } = bookData[book];
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  // Check if the current book is available in the selected language
+  useEffect(() => {
+    if (book) {
+      if (book === "preface") {
+        navigate("/preface");
+        return;
+      }
+
+      const bookTitle = t(`book.${book}.title`);
+
+      // If book title is empty (not translated), redirect to first available book
+      if (bookTitle === "") {
+        navigate(`/books/${books[0]}`);
+        return;
+      }
+    }
+  }, [book, t, navigate]);
+
+  const { illustration } = bookData[book];
+  const displayTitle = t(`book.${book}.title`) || bookData[book]?.title;
 
   const {
     width,
@@ -35,7 +58,7 @@ export const Book = ({ isMenuOpen }) => {
 
   return (
     <div className={styles.bookPage}>
-      <h4 className={styles.title}>{title}</h4>
+      <h4 className={styles.title}>{displayTitle}</h4>
       <div className={styles.mainContent}>
         <img
           className={styles.illustration}
