@@ -42,6 +42,7 @@ const translations = {
       ui: {
         tableOfContents: "სარჩევი",
         getStarted: "დაწყება",
+        downloadPdfVersion: "გადმოიწერე წიგნის PDF ვერსია",
         menu: {
           contents: "სარჩევი",
           about: "პროექტის შესახებ",
@@ -121,6 +122,7 @@ const translations = {
       ui: {
         tableOfContents: "Indice dei contenuti",
         getStarted: "Inizia",
+        downloadPdfVersion: "Scarica la versione PDF del libro",
         menu: {
           contents: "Indice dei contenuti",
           about: "Informazioni sul progetto",
@@ -201,6 +203,7 @@ const translations = {
       ui: {
         tableOfContents: "Table of Contents",
         getStarted: "Get Started",
+        downloadPdfVersion: "Download the book PDF version",
         menu: {
           contents: "Table of Contents",
           about: "About the Project",
