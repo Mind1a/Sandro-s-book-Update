@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./Pagination.module.scss";
 
 export const Pagination = ({ totalPages, onPageChange }) => {
@@ -13,8 +13,11 @@ export const Pagination = ({ totalPages, onPageChange }) => {
   return (
     <div className={styles.pagination}>
       <button
-        className={styles.pageButton}
+        className={`${styles.pageButton} ${styles.arrow} ${
+          currentPage === 1 ? styles.disabled : ""
+        }`}
         onClick={() => handlePageChange(currentPage - 1)}
+        disabled={currentPage === 1}
       >
         {"<"}
       </button>
@@ -31,11 +34,13 @@ export const Pagination = ({ totalPages, onPageChange }) => {
           >
             {page}
           </button>
-        )
+        ),
       )}
 
       <button
-        className={styles.pageButton}
+        className={`${styles.pageButton} ${styles.arrow} ${
+          currentPage === totalPages ? styles.disabled : ""
+        }`}
         disabled={currentPage === totalPages}
         onClick={() => handlePageChange(currentPage + 1)}
       >
