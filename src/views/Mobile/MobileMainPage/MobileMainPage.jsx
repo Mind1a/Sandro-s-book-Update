@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./MobileMainPage.module.scss";
 import { bookData, books } from "../../../bookData";
 import { Loader } from "../../../components/Loader/Loader";
@@ -41,6 +42,7 @@ const ChapterImages = ({ scrollToPreface, scrollToPlayer, setBook }) => {
 };
 
 export const MobileMainPage = () => {
+  const { t } = useTranslation();
   const [book, setBook] = useState("qaosidan-kosmosamde");
   const sectionRef = useRef(null);
   const prefaceRef = useRef(null);
@@ -110,7 +112,7 @@ export const MobileMainPage = () => {
       soundButtonsRef.current &&
         soundButtonsRef.current.removeEventListener(
           "touchstart",
-          handleTouchStart
+          handleTouchStart,
         );
       soundButtonsRef.current &&
         soundButtonsRef.current.removeEventListener("touchend", handleTouchEnd);
@@ -234,7 +236,7 @@ export const MobileMainPage = () => {
       </section>
       <section className={styles.MobilePdf}>
         <div className={styles.mobilePdfContent}>
-          <h3>გადმოიწერე წიგნის PDF ვერსია</h3>
+          <h3>{t("ui.downloadPdfVersion")}</h3>
           <a
             href="assets/pdf/SandroAsatiani_ChaosidanCosmosamde.pdf"
             target="_blank"

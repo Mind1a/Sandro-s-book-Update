@@ -39,6 +39,17 @@ const translations = {
           title: "უკვდავება",
         },
       },
+      ui: {
+        tableOfContents: "სარჩევი",
+        getStarted: "დაწყება",
+        downloadPdfVersion: "გადმოიწერე წიგნის PDF ვერსია",
+        menu: {
+          contents: "სარჩევი",
+          about: "პროექტის შესახებ",
+          pdf: "წიგნის PDF ვერსია",
+          gallery: "გალერია",
+        },
+      },
       "preface-translation": {
         title: "წინასიტყვაობა",
         text: `სანდრო ასათიანის წიგნი „ქაოსიდან კოსმოსამდე“ მცირე მოთხრობების, მე ვიტყოდი, იგავების ნაკრებია. თანამედროვე მანუსკრიპტი, სადაც ზოგან მინიშნებებით, ზოგან პირდაპირ მითითებულია ფრაზები, სურათ-ხატები და სიტყვები, რომლებიც სატრანზიტო პუნქტების დანიშნულებას ასრულებს terra incognita-ში, ციფრულ ტერიტორიებზე, სადაც ან ჯერ არავის დაუდგამს ფეხი, ან უკვე მანდაა და სჭირდება ფსიქოგეოგრაფიული, ინტერაქტიული გზამკვლევი, „მინიშნებები“, რათა იპოვოს „ჭეშმარიტი მასწავლებელი“ ან უსაფრთხო გზა კომპიუტერული თამაშის საბოლოო ტურისკენ, სადაც მისთვის უამრავ საიდუმლოს აეხდება ფარდა.\n
@@ -60,6 +71,9 @@ const translations = {
         კაცობრიობის განვითარების სხვადასხვა პერიოდში წიგნს განსხვავებული სახით გამოსცემდნენ. უძველესი შუმერული წიგნები თიხის ფირფიტებისა იყო. ჩვენი გადმოსახედიდან, ისინი აგურებს უფრო ჰგვანან ვიდრე წიგნებს. ეგვიპტელები წიგნებს პაპირუსზე წერდნენ, მასალიდან გამომდინარე, ასეთ წიგნებს გრძელი გრაგნილების სახე ჰქონდათ. შუასაუკუნეების ხელნაწერი წიგნები, ფოლიანტები, ძალიან დიდი ზომისა იყო. ასეთ წიგნთან ერთად შენს ოთახში ვერ განმარტოვდებოდი, ასეთ წიგნს მუხლებზე ვერ დაიდებდი, მათ სპეციალურად მოწყობილ მაგიდებზე დებდნენ და ისე კითხულობდნენ.\n
         წიგნის გარეგანი ფორმის ცვლილებასთან ერთად იცვლებოდა წიგნის ავტორი, მისი გამომცემელი და წიგნის მკითხველი. იცვლებოდა თავად ამბავიც რომელსაც წიგნი ყვება. არ იცვლება ის უსაზღვრო შესაძლებლობები რომელსაც წიგნი გვაძლევს. ვიმოგზაუროთ იქ სადაც არ ვყოფილვართ, გავხდეთ თანაზიარი იმ ამბებისა რომელიც ჩვენ არ გადაგვხდენია თავს. გავიზიაროთ აზრები რომელსაც ავტორი გვთავაზობს.\n
         ეს წიგნი, წიგნის ინტერნეტ გამოცემაა. ამ წიგნით მოყოლილი ამბები ტექნოლოგიებსა და თანამედროვე ადამიანის მაგიურ შესაძლებლობებზეა. ამ წიგნის ქაღალდზე დაბეჭდილი ვერსია არ არსებობს, წიგნში მოთხრობილი ამბების წაკითხვა, მოსმენა მხოლოდ ტექნოლოგიების წყალობით არის შესაძლებელი.\n`,
+      },
+      home: {
+        cosmosText: "კოსმოსამდე",
       },
     },
   },
@@ -105,6 +119,17 @@ const translations = {
           title: "Immortalità",
         },
       },
+      ui: {
+        tableOfContents: "Indice dei contenuti",
+        getStarted: "Inizia",
+        downloadPdfVersion: "Scarica la versione PDF del libro",
+        menu: {
+          contents: "Indice dei contenuti",
+          about: "Informazioni sul progetto",
+          pdf: "Versione PDF del libro",
+          gallery: "Galleria",
+        },
+      },
       "preface-translation": {
         title: "Introduzione",
         text: `l libro di Sandro Asatiani "Dal Caos al Cosmo" è una raccolta di racconti brevi, che definirei come favole. Un manoscritto contemporaneo fatto di frasi, immagini e parole che talvolta sono appena accennate, talvolta esplicite, e che fungono da punti di transito verso una terra incognita, verso i territori digitali dove nessuno è ancora giunto, o dove qualcuno è già arrivato e ha bisogno di una guida psicogeografica e interattiva o degli "indizi" per trovare un "vero maestro" o un cammino sicuro verso il livello finale del gioco elettronico, dove molti segreti gli si riveleranno. \n
@@ -126,6 +151,106 @@ const translations = {
         Nelle diverse epoche dello sviluppo umano il libro è stato pubblicato in tante forme. I libri degli antichi Sumeri venivano scritti su tavolette di argilla. Dal nostro punto di vista assomigliavano più a mattoni che a libri! Gli Egiziani scrivevano su fogli di papiro e quindi i loro libri avevano l'aspetto di lunghe pergamene. I libri medievali invece erano così grandi che non potevi contenerli nella tua stanza e tantomeno sfogliarli tenendoli sulle ginocchia. Infatti gli uomini dell'epoca li mettevano su tavoli appositamente predisposti e li leggevano così.\n
        Con il cambiamento della forma esterna del libro cambiavano anche autori, editori e lettori. Di conseguenza cambiavano anche le storie raccontate. L’unica cosa che non è mai cambiata è la possibilità infinita che ci offre un libro. Leggendo possiamo viaggiare verso luoghi dove non siamo mai stati. Possiamo condividere le storie che non abbiamo vissuto di persona, possiamo condividere i pensieri suggeriti dall'autore.\n
         Questa è un’edizione online del libro. Le storie raccontate riguardano la tecnologia e le abilità magiche dell'uomo moderno. Non ne esiste una versione cartacea. Queste storie possono essere lette ed ascoltate solo grazie alla tecnologia.\n`,
+      },
+      home: {
+        cosmosText: "AL COSMO",
+      },
+    },
+  },
+  en: {
+    translation: {
+      book: {
+        preface: {
+          title: "Foreword",
+          description:
+            "This is the description text in English for the preface.",
+        },
+        "qaosidan-kosmosamde": {
+          title: "From Chaos to Cosmos",
+        },
+        "yvelaze-seqsualuri-profesia": {
+          title: "The Most Sexual Profession",
+        },
+        jadoqari: {
+          title: "The Sorcerer",
+        },
+        "shexvedra-leviatantan": {
+          title: "Meeting with Leviathan",
+        },
+        "ofisebis-amaoeba": {
+          title: "The Vanity of Offices",
+        },
+        "xelovnuri-inteleqti": {
+          title: "Artificial Intelligence",
+        },
+        "cheshmariti-maswavlebeli": {
+          title: "The True Teacher",
+        },
+        "shushis-qila": {
+          title: "The Glass Jar",
+        },
+        "cifruli-samotxe": {
+          title: "Digital Paradise",
+        },
+        "naxatebit-saubari": {
+          title: "Talking with Images",
+        },
+        ukvdaveba: {
+          title: "Immortality",
+        },
+      },
+
+      ui: {
+        tableOfContents: "Table of Contents",
+        getStarted: "Get Started",
+        downloadPdfVersion: "Download the book PDF version",
+        menu: {
+          contents: "Table of Contents",
+          about: "About the Project",
+          pdf: "PDF Version of the Book",
+          gallery: "Gallery",
+        },
+      },
+
+      "preface-translation": {
+        title: "Foreword",
+        text: `Sandro Asatiani's book "From Chaos to Cosmos" is a collection of short stories, parables, I would say. It is a contemporary manuscript where, sometimes through hints, sometimes through direct indications, one finds phrases, images, and words that function as transit points into terra incognita, into digital territories, where no one has yet set foot, or where someone is already there and needs a psychogeographical, interactive guide, "hints," in order to find the "true teacher" or a safe path to the final round of a computer game, where countless secrets will be unveiled for them.
+
+        Life is somewhat like a computer game. The main hero's adventure, full of surprises, begins. He constantly has to make a choice. Each choice, in turn, is followed by a new surprise. No one knows where the game will lead him, to an enlightened victory or an unexpected end.
+
+        Digital technologies, as never before, need their own, new mythos. Despite the fact that technologies are developing at the speed of light, we, humans, still live in the reality of ancient, unconscious archetypes. Sandro tries to discover these archetypes in the digital world and, if possible, to invent their new version, adapted to contemporary technologies. «Hevel havalim» — a creator of a creative advertisement says this phrase in passing, and we hear an echo from a text written thousands of years ago. In reality, the archetypes encoded in humanity's unconscious still function in our depths; the main thing is how we can use and manifest them in the new, digital world.
+
+        The title itself, "From Chaos to Cosmos," hints at something even more interesting: in ancient myths, from the primordial chaos (which in itself already contains potential cosmoses) – the cosmos (order) is, as a rule, created by cultural heroes or demiurges.
+
+        Those who study code today, who create digital worlds, chatbots, applications, and programs – they are precisely the young demiurges, little gods, who bring order to chaos in order to create a cosmos, a new order, from it.
+
+        Thus, this book is intended for these young demiurges.
+
+        All the unfulfilled dreams of alchemists or sorcerers are being created today on the keyboards of these demiurges. Incantations have been replaced by codes; esoteric Kabbalistic calculations by the mathematical power of computers; the revelations of angels (which in Greek means "messenger") by chatbots and virtual reality; initiation practices by the encounter with the state "Leviathan"; meditations by computer games; deities by the virtual beings of artificial intelligence; temples by servers.
+
+        "Before the young sorcerer's eyes, on the computer screen, the world he had created was depicted," writes Sandro, deftly juggling ancient archetypes and ultra-modern technologies.
+
+        The main charm of the book is precisely this blending of ancient archetypes and humanity's path toward technological singularity. The text, in every sentence, branches into several transit points where different treasures are stored. The mission of the contemporary demiurge or cultural hero is to create from the existing chaos that cosmos where we will all find ourselves in a completely new, unknowable reality, full of mysteries and revelations. At no stage in history have we had such illuminative, divine possibilities.
+
+        Young demiurge, do not be afraid of the snares and traps that social or cultural programming lays before you. Decipher this manuscript and dare to create something revolutionary, something great, something magical, that will change "reality" as we know it, because the time has come for the reality imposed on us to radically change, and for us to step into the world of technological magic. Everything is in your hands; the keyboard is at your fingertips.
+
+        And this book by Sandro Asatiani is a guide on this wondrous journey.
+`,
+        author: "Zura Jishkariani",
+      },
+
+      "about-project-translation": {
+        title: "About the Project",
+        text: `When we think of a book, we imagine an object printed on paper, bound in a hard or soft cover. This conception of ours may no longer correspond to reality at all today. Today, a book often has the form of a file. Such a book possesses no material shell whatsoever. It exists only in the form of binary data, written into a computing device. Its form is determined by the device into which the book is loaded.
+
+In different periods of humanity's development, the book was published in different forms. The most ancient Sumerian books were clay tablets. From our perspective, they look more like bricks than books. The Egyptians wrote books on papyrus, and due to the material, such books had the form of long scrolls. Medieval manuscript books, folios, were of a very large size. You couldn't be alone in your room with such a book; you could not place such a book on your lap. They would place them on specially arranged tables and read them that way.
+Along with the change in the book's external form, the book's author, its publisher, and the book's reader also changed. The story itself, which the book tells, also changed. What does not change are the limitless possibilities that the book gives us. To travel where we have not been; to share in the stories that have not happened to us. To share in the ideas that the author offers us.
+
+This book is an internet edition of a book. The stories told by this book are about technologies and the magical possibilities of the modern human. A version of this book printed on paper does not exist. Reading or listening to the stories told in the book is possible only thanks to technologies.
+`,
+      },
+      home: {
+        cosmosText: "TO COSMOS",
       },
     },
   },

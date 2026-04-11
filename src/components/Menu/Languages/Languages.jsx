@@ -30,6 +30,13 @@ export const Languages = ({
       >
         IT
       </LanguageChangeButton>
+      <LanguageChangeButton
+        language="EN"
+        isSelected={currentLanguage === "EN"}
+        onClick={() => handleLanguageChange("en")}
+      >
+        EN
+      </LanguageChangeButton>
     </div>
   );
 };

@@ -3,10 +3,23 @@ import styles from "./Home.module.scss";
 import { motion } from "framer-motion";
 import ChaosLetters from "../../components/ChaosLetters/ChaosLetters";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const initialDelay = 0.25;
 
 export const Home = () => {
+  const { t, i18n } = useTranslation();
+  const isLatinCosmosText =
+    i18n.language.startsWith("en") || i18n.language.startsWith("it");
+
+  const cosmosInitial = isLatinCosmosText
+    ? { right: "3%", bottom: "12%", fontSize: "4.2rem" }
+    : { right: "3%", bottom: "12%", fontSize: "4.5rem" };
+
+  const cosmosAnimate = isLatinCosmosText
+    ? { right: "10%", bottom: "14%", fontSize: "3.7rem" }
+    : { right: "10%", bottom: "14%", fontSize: "6.25rem" };
+
   return (
     <div>
       <Loader
@@ -29,7 +42,6 @@ export const Home = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 + initialDelay }}
       >
-
         <Link to="/books/qaosidan-kosmosamde" className={styles.playIcon}>
           <motion.img
             whileHover={{ opacity: 0.45 }}
@@ -37,14 +49,16 @@ export const Home = () => {
             alt="play button"
           />
         </Link>
-        <span className={styles.playText}>დაწყება</span>
+        <span className={styles.playText}>{t("ui.getStarted")}</span>
         <motion.span
-          initial={{ right: "3%", bottom: "12%", fontSize: "4.5rem" }}
-          animate={{ right: "4%", bottom: "14%", fontSize: "6.25rem" }}
+          initial={cosmosInitial}
+          animate={cosmosAnimate}
           transition={{ delay: 1.5 + initialDelay }}
-          className={styles.cosmosText}
+          className={`${styles.cosmosText} ${
+            isLatinCosmosText ? styles.cosmosTextLatin : ""
+          }`}
         >
-          კოსმოსამდე
+          {t("home.cosmosText")}
         </motion.span>
       </motion.div>
     </div>
