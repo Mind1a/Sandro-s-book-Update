@@ -5,7 +5,34 @@ import { FliperBook } from "../../components/FliperBook";
 import { useTranslation } from "react-i18next";
 
 export const Pdf = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const languageKey = (i18n.language || "ge").split("-")[0];
+
+  const externalBooks = {
+    ge: {
+      image: "/assets/png/books_pdf/Book_KA.png",
+      url: "https://www.lulu.com/account/projects/84rvvkn",
+      alt: "Georgian book cover",
+    },
+    ka: {
+      image: "/assets/png/books_pdf/Book_KA.png",
+      url: "https://www.lulu.com/account/projects/84rvvkn",
+      alt: "Georgian book cover",
+    },
+    it: {
+      image: "/assets/png/books_pdf/Book_IT.png",
+      url: "https://www.amazon.it/dp/B0G9PTZ4SY",
+      alt: "Italian book cover",
+    },
+    en: {
+      image: "/assets/png/books_pdf/Book_EN.png",
+      url: "https://www.amazon.com/dp/B0G2SV1ZDG",
+      alt: "English book cover",
+    },
+  };
+
+  const currentExternalBook = externalBooks[languageKey] || externalBooks.ge;
 
   const handleDownload = () => {
     const link = document.createElement("a");
@@ -19,7 +46,7 @@ export const Pdf = () => {
   return (
     <>
       <Loader width={["0%", "100%"]} />
-      <h4 className={styles.title}>წიგნის PDF ვერსია</h4>
+      <h4 className={styles.title}>{t("ui.menu.pdf")}</h4>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -28,20 +55,18 @@ export const Pdf = () => {
       >
         <FliperBook />
         <div className={styles.pdfContent}>
-          <h3>
-            გადმოიწერე წიგნის <span>PDF</span> ვერსია
-          </h3>
-          <div className={styles.downloadPDF}>
-            <button
-              onClick={handleDownload}
-              style={{ border: "none", background: "none", cursor: "pointer" }}
-            >
-              <img
-                src="assets/svgs/content-chapter-svg/PDFBookDownload.svg"
-                alt="pdfBook"
-              />
-            </button>
-          </div>
+          <a
+            href={currentExternalBook.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.bookExternalLink}
+          >
+            <img
+              src={currentExternalBook.image}
+              alt={currentExternalBook.alt}
+              className={styles.bookExternalImage}
+            />
+          </a>
         </div>
       </motion.div>
     </>

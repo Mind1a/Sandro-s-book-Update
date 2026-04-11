@@ -47,6 +47,7 @@ const baseAnimations = {
   d: ["translate(0px, -440px)", "translate(0px, 0px)"],
   a: ["translate(-40px, -620px)", "translate(0px, 0px)"],
   n: ["translate(-20px, -100px)", "translate(0px, 0px)"],
+  l: ["translate(-30px, -240px)", "translate(0px, 0px)"],
 };
 
 export const letterAnimations = {
@@ -68,4 +69,5 @@ export const letterAnimations = {
   c: { transform: baseAnimations.i },
   h: { transform: baseAnimations.d },
   o2: { transform: baseAnimations.a },
+  l: { transform: baseAnimations.l },
 };

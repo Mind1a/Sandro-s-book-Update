@@ -17,6 +17,11 @@ export const Book = ({ isMenuOpen }) => {
   // Check if the current book is available in the selected language
   useEffect(() => {
     if (book) {
+      if (book === "preface") {
+        navigate("/preface");
+        return;
+      }
+
       const bookTitle = t(`book.${book}.title`);
 
       // If book title is empty (not translated), redirect to first available book

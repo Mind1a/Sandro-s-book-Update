@@ -41,3 +41,23 @@
     }
   }
 }
+
+.bookExternalLink {
+  display: block;
+  width: 340px;
+  margin: 20px auto 0;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+  }
+}
+
+.bookExternalImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}

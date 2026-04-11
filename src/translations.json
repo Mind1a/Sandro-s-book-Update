@@ -42,6 +42,9 @@
       "preface-translation": {
         "title": "წინასიტყვაობა",
         "description": "ეს არის წინასიტყვაობის სრული ტექსტი ქართულ ენაზე."
+      },
+      "home": {
+        "cosmosText": "კოსმოსამდე"
       }
     }
   },
@@ -89,6 +92,9 @@
       "preface-translation": {
         "title": "Introduzione",
         "description": "Questo è il testo della prefazione in italiano."
+      },
+      "home": {
+        "cosmosText": "AL COSMO"
       }
     }
   },
@@ -136,6 +142,9 @@
       "preface-translation": {
         "title": "Foreword",
         "description": "This is the description text in English for the preface."
+      },
+      "home": {
+        "cosmosText": "TO COSMOS"
       }
     }
   }
