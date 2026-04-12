@@ -106,49 +106,49 @@ const ChaosLetters = ({ transition }) => {
           {/* Italian version */}
           <motion.img
             className={styles.letterItD}
-            src="assets/svgs/letters/სათაური_WEB_IT_01_D.svg"
+            src="assets/svgs/letters/letter-d-it.svg"
             animate={letterAnimations.d}
             transition={mainLetterTransition}
             alt="letter d"
           />
           <motion.img
             className={styles.letterItA1}
-            src="assets/svgs/letters/სათაური_WEB_IT_02_A.svg"
+            src="assets/svgs/letters/letter-a-it-1.svg"
             animate={letterAnimations.a}
             transition={mainLetterTransition}
             alt="letter a"
           />
           <motion.img
             className={styles.letterItL}
-            src="assets/svgs/letters/სათაური_WEB_IT_03_L.svg"
+            src="assets/svgs/letters/letter-l-it.svg"
             animate={letterAnimations.l}
             transition={mainLetterTransition}
             alt="letter l"
           />
           <motion.img
             className={styles.letterItC}
-            src="assets/svgs/letters/სათაური_WEB_IT_04_C.svg"
+            src="assets/svgs/letters/letter-c-it.svg"
             animate={letterAnimations.c}
             transition={minorLetterTransition}
             alt="letter c"
           />
           <motion.img
             className={styles.letterItA2}
-            src="assets/svgs/letters/სათაური_WEB_IT_05_A.svg"
+            src="assets/svgs/letters/letter-a-it-2.svg"
             animate={letterAnimations.a}
             transition={minorLetterTransition}
             alt="letter a"
           />
           <motion.img
             className={styles.letterItO}
-            src="assets/svgs/letters/სათაური_WEB_IT_06_O.svg"
+            src="assets/svgs/letters/letter-o-it.svg"
             animate={letterAnimations.o2}
             transition={minorLetterTransition}
             alt="letter o"
           />
           <motion.img
             className={styles.letterItS}
-            src="assets/svgs/letters/სათაური_WEB_IT_07_S.svg"
+            src="assets/svgs/letters/letter-s-it.svg"
             animate={letterAnimations.s}
             transition={minorLetterTransition}
             alt="letter s"
