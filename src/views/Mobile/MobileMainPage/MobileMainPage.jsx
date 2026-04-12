@@ -9,13 +9,14 @@ import { clamp, getTimeLeft } from "../../../utils/book";
 
 const swipeMargin = 50;
 
-const ChapterImages = ({ scrollToPreface, scrollToPlayer, setBook }) => {
+const ChapterImages = ({ scrollToPreface, scrollToPlayer, setBook, t }) => {
   const chapters = Object.entries(bookData).map(([book, { title }], index) => {
+    const chapterTitle = t(`book.${book}.title`) || title;
     const imgSrc = `/assets/svgs/responsive-svg-TOC/${index + 1}.svg`;
     return (
       <div
         onClick={() => {
-          if (title === "წინასიტყვაობა") {
+          if (book === "preface") {
             scrollToPreface();
           } else {
             scrollToPlayer();
@@ -28,10 +29,10 @@ const ChapterImages = ({ scrollToPreface, scrollToPlayer, setBook }) => {
       >
         <div className={styles.contentsChild}>
           <div className={styles.chapter}>
-            <a>{title}</a>
+            <a>{chapterTitle}</a>
           </div>
           <div className={styles.spanIconContents}>
-            <img key={title} src={imgSrc} alt={`Chapter ${index + 1}`} />
+            <img key={chapterTitle} src={imgSrc} alt={`Chapter ${index + 1}`} />
           </div>
         </div>
       </div>
@@ -42,13 +43,46 @@ const ChapterImages = ({ scrollToPreface, scrollToPlayer, setBook }) => {
 };
 
 export const MobileMainPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [book, setBook] = useState("qaosidan-kosmosamde");
   const sectionRef = useRef(null);
   const prefaceRef = useRef(null);
   const playerRef = useRef(null);
   const soundButtonsRef = useRef(null);
   const [prevTouchX, setPrevTouchX] = useState(null);
+
+  const languageKey = (i18n.language || "ge").split("-")[0];
+  const externalBooks = {
+    ge: {
+      image: "/assets/png/books_pdf/Book_KA.png",
+      url: "https://www.lulu.com/account/projects/84rvvkn",
+      alt: "Georgian book cover",
+    },
+    ka: {
+      image: "/assets/png/books_pdf/Book_KA.png",
+      url: "https://www.lulu.com/account/projects/84rvvkn",
+      alt: "Georgian book cover",
+    },
+    it: {
+      image: "/assets/png/books_pdf/Book_IT.png",
+      url: "https://www.amazon.it/dp/B0G9PTZ4SY",
+      alt: "Italian book cover",
+    },
+    en: {
+      image: "/assets/png/books_pdf/Book_EN.png",
+      url: "https://www.amazon.com/dp/B0G2SV1ZDG",
+      alt: "English book cover",
+    },
+  };
+  const currentExternalBook = externalBooks[languageKey] || externalBooks.ge;
+  const prefaceText = t("preface-translation.text")
+    .split("\n")
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+  const aboutProjectText = t("about-project-translation.text")
+    .split("\n")
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
 
   const {
     width,
@@ -218,10 +252,14 @@ export const MobileMainPage = () => {
                 ></path>
               </svg>
             </div>
-            <h2 className={styles.mobileTitle}>კოსმოსამდე</h2>
+            <h2 className={styles.mobileTitle}>{t("home.cosmosText")}</h2>
             <div className={styles.mobileIcons}>
-              {Object.entries(bookData).map(([[], { img, title }]) => (
-                <img key={title} src={img} alt={title} />
+              {Object.entries(bookData).map(([bookName, { img, title }]) => (
+                <img
+                  key={bookName}
+                  src={img}
+                  alt={t(`book.${bookName}.title`) || title}
+                />
               ))}
             </div>
           </div>
@@ -229,6 +267,7 @@ export const MobileMainPage = () => {
       </section>
       <section ref={sectionRef} className={styles.mobileContents}>
         <ChapterImages
+          t={t}
           scrollToPlayer={scrollToPlayer}
           scrollToPreface={scrollToPreface}
           setBook={setBook}
@@ -236,113 +275,42 @@ export const MobileMainPage = () => {
       </section>
       <section className={styles.MobilePdf}>
         <div className={styles.mobilePdfContent}>
-          <h3>{t("ui.downloadPdfVersion")}</h3>
           <a
-            href="assets/pdf/SandroAsatiani_ChaosidanCosmosamde.pdf"
+            href={currentExternalBook.url}
             target="_blank"
+            rel="noopener noreferrer"
+            className={styles.bookExternalLink}
+            aria-label={t("ui.buyBookCta")}
+            title={t("ui.buyBookCta")}
           >
             <img
-              src="/assets/svgs/content-chapter-svg/PDFBookDownload.svg"
-              alt="pdfBook"
+              src={currentExternalBook.image}
+              alt={currentExternalBook.alt}
+              className={styles.bookExternalImage}
             />
           </a>
+          <p className={styles.buyCta}>{t("ui.buyBookCta")}</p>
         </div>
       </section>
       <section ref={prefaceRef} className={styles.MobilePreface}>
-        <h2>წინასიტყვაობა</h2>
+        <h2>{t("preface-translation.title")}</h2>
         <div className={styles.prefaceDescription}>
           <div>
-            სანდრო ასათიანის წიგნი „ქაოსიდან კოსმოსამდე“ მცირე მოთხრობების, მე
-            ვიტყოდი, იგავების ნაკრებია. თანამედროვე მანუსკრიპტი, სადაც ზოგან
-            მინიშნებებით, ზოგან პირდაპირ მითითებულია ფრაზები, სურათ-ხატები და
-            სიტყვები, რომლებიც სატრანზიტო პუნქტების დანიშნულებას ასრულებს{" "}
-            <span>terra incognita</span>-ში, ციფრულ ტერიტორიებზე, სადაც ან ჯერ
-            არავის დაუდგამს ფეხი, ან უკვე მანდაა და სჭირდება ფსიქოგეოგრაფიული,
-            ინტერაქტიული გზამკვლევი, „მინიშნებები“, რათა იპოვოს „ჭეშმარიტი
-            მასწავლებელი“ ან უსაფრთხო გზა კომპიუტერული თამაშის საბოლოო ტურისკენ,
-            სადაც მისთვის უამრავ საიდუმლოს აეხდება ფარდა.
-            <p>
-              „ცხოვრება რაღაცით კომპიუტერულ თამაშს ჰგავს. თამაშის მთავარი გმირის
-              მოულოდნელობებით სავსე თავგადასავალი იწყება. მას მუდამ არჩევანის
-              გაკეთება უწევს. თითოეულ არჩევანს, თავის მხრივ, ახალი მოულოდნელობა
-              მოსდევს. არავინ იცის, სად მიიყვანს მას თამაში, გასხივოსნებულ
-              გამარჯვებამდე თუ მოულოდნელ დასასრულამდე.
+            {prefaceText.map((paragraph, index) => (
+              <p key={`preface-${index}`}>{paragraph}</p>
+            ))}
+            <p className={styles.prefaceAuthor}>
+              {t("preface-translation.author")}
             </p>
-            <p>
-              ციფრულ ტექნოლოგიებს, ისე, როგორც არასდროს, სჭირდება თავისი, ახალი
-              მითოსი. მიუხედავად იმისა, რომ ტექნოლოგიები სინათლის სიჩქარით
-              ვითარდება, ჩვენ, ადამიანები, ჯერ კიდევ ვცხოვრობთ უძველესი
-              არაცნობიერი არქეტიპების რეალობაში, სანდრო ცდილობს, ეს არქეტიპები
-              ციფრულ სამყაროში აღმოაჩინოს და, თუ შესაძლებელია, მათი ახალი,
-              თანამედროვე ტექნოლოგიებს მისადაგებული ვერსია გამოიგონოს.
-              <span>«hevel havalim»</span> — გაკვრით ამბობს ამ ფრაზას კრეატიული
-              რეკლამის შემქმნელი და ჩვენ გვესმის ექო ათასეული წლების წინ
-              დაწერილი ტექსტისა. სინამდვილეში, კაცობრიობის არაცნობიერში
-              ჩაკოდირებული არქეტიპები დღემდე ფუნქციონირებს ჩვენს სიღრმეებში,
-              მთავარი ისაა, როგორ შევძლებთ მათ გამოყენებასა და მანიფესტაციას
-              ახალ, ციფრულ სამყაროში.
-            </p>
-            <p>
-              თავად სათაური „ქაოსიდან კოსმოსამდე“ მიგვანიშნებს კიდევ უფრო
-              საინტერესო რამეზე: ძველ მითოსებში პირვანდელი ქაოსიდან (რომელიც
-              თავის თავში პოტენციურ კოსმოსებს უკვე შეიცავს) – კოსმოსს (წესრიგს),
-              როგორც წესი, კულტურული გმირები ან დემიურგები ქმნიან.
-            </p>
-            <p>
-              ისინი, ვინც დღეს კოდს სწავლობს, ციფრულ სამყაროებს, ჩეთბოტებს,
-              აპლიკაციებსა და პროგრამებს ქმნიან – სწორედ რომ ახალგაზრდა
-              დემიურგები არიან, პატარა ღმერთები, რომლებიც ქაოსს აწესრიგებენ,
-              რათა მისგან კოსმოსი, ახალი წესრიგი შექმნან.
-            </p>
-            <p>
-              ამგვარად, ეს წიგნი ამ ახალგაზრდა დემიურგებისთვისაა განკუთვნილი.
-            </p>
-            <p>
-              ალქიმიკოსებისა თუ ჯადოქრების ყველა ძველი აუხდენელი ოცნება, დღეს ამ
-              დემიურგების კლავიატურებზე იქმნება, შელოცვები კოდებმა შეცვალა,
-              ეზოტერიკული კაბალისტური გამოთვლები – კომპიუტერების მათემატიკური
-              გამოთვლების სიმძლავრემ, ანგელოზების (რაც ბერძნულად ნიშნავს
-              „მაცნეს, მესენჯერს) გამოცხადებები – ჩეთბოტებმა და ვირტუალურმა
-              რეალობამ, ინიციაციის პრაქტიკები – სახელმწიფო „ლევიათანთან“
-              შეხვედრამ, მედიტაციები – კომპიუტერულმა თამაშებმა, ღვთაებები –
-              ხელოვნური ინტელექტის ვირტუალურმა არსებებმა, ტაძრები – სერვერებმა.
-            </p>
-            <p>
-              „ახალგაზრდა ჯადოქრის თვალწინ, კომპიუტერის ეკრანზე მის მიერ
-              შექმნილი სამყარო იყო გამოსახული“, წერს სანდრო და ოსტატურად
-              ჟონგლიორობს უძველესი არქეტიპებითა და ულტრათანამედროვე
-              ტექნოლოგიებით.
-            </p>
-            <p>
-              წიგნის მთავარი ხიბლი სწორედ ამ უძველესი არქეტიპებისა და
-              ტექნოლოგიური სინგულარობისკენ მიმავალი კაცობრიობის ერთმანეთთან
-              შეზავებაა, ტექსტი ყოველ წინადადებაში იტოტება რამდენიმე სატრანზიტო
-              პუნქტად, სადაც სხვადასხვა საგანძურია შემონახული. თანამედროვე
-              დემიურგის თუ კულტურული გმირის მისიაა, არსებული ქაოსიდან ის კოსმოსი
-              შექმნას, სადაც ყველანი სრულიად ახალ, შეუცნობელ, საიდუმლოებებითა და
-              გამოცხადებებით სავსე რეალობაში მოვხვდებით. ისტორიის არცერთ ეტაპზე
-              ჩვენ არ გვქონია მსგავსი ილუმინაციური, ღვთაებრივი შესაძლებლობები.
-            </p>
-            <p>
-              ახალგაზრდა დემიურგო, ნუ შეუშინდები მახეებსა და ხაფანგებს, რომელსაც
-              სოციალური თუ კულტურული პროგრამირება გიდებს წინ, გაშიფრე ეს
-              მანუსკრიპტი და გაბედე შექმნა რაღაც რევოლუციური, რაღაც დიდი, რაღაც
-              მაგიური, რაც შეცვლის „რეალობას“, ისეთს, როგორსაც მას ვიცნობთ,
-              ვინაიდან მოვიდა დრო, თავს მოხვეული რეალობა რადიკალურად შეიცვალოს
-              და ჩვენ შევაბიჯოთ ტექნოლოგიური მაგიის სამყაროში. ყველაფერი შენს
-              ხელთაა, კლავიატურაა შენს ხელთ.
-            </p>
-            <p>
-              სანდრო ასათიანის ეს წიგნი კი გზამკვლევია ამ საოცარ მოგზაურობაში.
-            </p>
-            <p className={styles.prefaceAuthor}>ზურა ჯიშკარიანი</p>
           </div>
         </div>
       </section>
       <section ref={playerRef} className={styles.MobilePlayer}>
         <div className={styles.mobileSoundContent}>
           <div className={styles.titleBurgerWrapper}>
-            <h2 className={styles.playerTitle}>{bookData[book].title}</h2>
+            <h2 className={styles.playerTitle}>
+              {t(`book.${book}.title`) || bookData[book].title}
+            </h2>
             <button onClick={scrollToSection}>
               <div className={styles.playerBurger}>
                 <svg
@@ -392,47 +360,11 @@ export const MobileMainPage = () => {
       </section>
       <section className={styles.first}></section>
       <section id="aboutProject" className={styles.MobileAboutProject}>
-        <h2>პროექტის შესახებ</h2>
+        <h2>{t("about-project-translation.title")}</h2>
         <div>
-          <p>
-            როცა წიგნი გვახსენდება, ქაღალდის ფურცელზე დაბეჭდილი ობიექტი
-            წარმოგვიდგება, მაგარ ან რბილ ყდაში აკინძული. ეს ჩვენი წარმოდგენა
-            დღეს შეიძლება საერთოდ აღარ შეესაბამებოდეს რეალობას. დღეს წიგნს
-            ხშირად ფაილის სახე აქვს. ასეთ წიგნს საერთოდ არ გააჩნია მატერიალური
-            გარსი. ის მხოლოდ კომპიუტერულ მოწყობილობაში ჩაწერილი ბინარული
-            მონაცემების სახით არსებობს. მისი ფორმა იმ მოწყობილობით არის
-            განპირობებული, რომელშიც თავად წიგნია ჩატვირთული. კაცობრიობის
-            განვითარების სხვადასხვა პერიოდში წიგნს განსხვავებული სახით
-            გამოსცემდნენ. უძველესი შუმერული წიგნები თიხის ფირფიტებისა იყო. ჩვენი
-            გადმოსახედიდან, ისინი აგურებს უფრო ჰგვანან ვიდრე წიგნებს.
-            ეგვიპტელები წიგნებს პაპირუსზე წერდნენ, მასალიდან გამომდინარე, ასეთ
-            წიგნებს გრძელი გრაგნილების სახე ჰქონდათ. შუასაუკუნეების ხელნაწერი
-            წიგნები, ფოლიანტები, ძალიან დიდი ზომისა იყო. ასეთ წიგნთან ერთად შენს
-            ოთახში ვერ განმარტოვდებოდი, ასეთ წიგნს მუხლებზე ვერ დაიდებდი, მათ
-            სპეციალურად მოწყობილ მაგიდებზე დებდნენ და ისე კითხულობდნენ. წიგნის
-            გარეგანი ფორმის ცვლილებასთან ერთად იცვლებოდა წიგნის ავტორი, მისი
-            გამომცემელი და წიგნის მკითხველი. იცვლებოდა თავად ამბავიც რომელსაც
-            წიგნი ყვება. არ იცვლება ის უსაზღვრო შესაძლებლობები რომელსაც წიგნი
-            გვაძლევს. ვიმოგზაუროთ იქ სადაც არ ვყოფილვართ, გავხდეთ თანაზიარი იმ
-            ამბებისა რომელიც ჩვენ არ გადაგვხდენია თავს. გავიზიაროთ აზრები
-            რომელსაც ავტორი გვთავაზობს. ეს წიგნი, წიგნის ინტერნეტ გამოცემაა. ამ
-            წიგნით მოყოლილი ამბები ტექნოლოგიებსა და თანამედროვე ადამიანის მაგიურ
-            შესაძლებლობებზეა. ამ წიგნის ქაღალდზე დაბეჭდილი ვერსია არ არსებობს,
-            წიგნში მოთხრობილი ამბების წაკითხვა, მოსმენა მხოლოდ ტექნოლოგიების
-            წყალობით არის შესაძლებელი. წიგნის ვებ გამოცემაზე მუშაობდნენ:
-          </p>
-          <p>რედაქტორი: ანა ჭაბაშვილი</p>
-          <p>პროგრამისტების ჯგუფი:</p>
-          <p>ირაკლი მჭედლიშვილი,</p>
-          <p>ლუკა ბლიაძე,</p>
-          <p> გრიგორი ხუნდაძე,</p>
-          <p>გიგა ამირიძე,</p>
-          <p>ქეთევან ჭაბუკიანი,</p>
-          <p>მერი გოგოჩაშვილი,</p>
-          <p>გიორგი სანოძე,</p>
-          <p>ნიკა ქვრივიშვილი,</p>
-          <p>მინდია არაბული,</p>
-          <p>დავით ხაჩატუროვი.</p>
+          {aboutProjectText.map((paragraph, index) => (
+            <p key={`about-${index}`}>{paragraph}</p>
+          ))}
         </div>
       </section>
     </div>
