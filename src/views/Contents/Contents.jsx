@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
 import { bookData } from "../../bookData";
 import { useTranslation } from "react-i18next";
+import { buildLocalizedPath, toRouteLanguage } from "../../utils/routing";
 
 export const Contents = () => {
   const { t, i18n } = useTranslation();
+  const routeLanguage = toRouteLanguage(i18n.language);
 
   const currentLanguage = i18n.language;
   const languageKey = currentLanguage.split("-")[0];
@@ -47,7 +49,11 @@ export const Contents = () => {
                 <div key={book} className={styles.Chapter}>
                   <Link
                     className={styles.chapterRoute}
-                    to={book === "preface" ? `/${book}` : `/books/${book}`}
+                    to={
+                      book === "preface"
+                        ? buildLocalizedPath(`/${book}`, routeLanguage)
+                        : buildLocalizedPath(`/books/${book}`, routeLanguage)
+                    }
                   >
                     <img
                       src={img}
