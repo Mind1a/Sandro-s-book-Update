@@ -6,6 +6,8 @@ import { bookData, books } from "../../bookData";
 import { motion } from "framer-motion";
 import { AudioBar } from "../../components/AudioBar";
 import { useTranslation } from "react-i18next";
+import { buildLocalizedPath, toRouteLanguage } from "../../utils/routing";
+import i18n from "../../utils/i18n";
 
 import { useBookPlayer } from "../../hooks/useBookPlayer";
 
@@ -13,12 +15,13 @@ export const Book = ({ isMenuOpen }) => {
   const { book } = useParams();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const currentLanguage = toRouteLanguage(i18n.language);
 
   // Check if the current book is available in the selected language
   useEffect(() => {
     if (book) {
       if (book === "preface") {
-        navigate("/preface");
+        navigate(buildLocalizedPath("/preface", currentLanguage));
         return;
       }
 
@@ -26,11 +29,11 @@ export const Book = ({ isMenuOpen }) => {
 
       // If book title is empty (not translated), redirect to first available book
       if (bookTitle === "") {
-        navigate(`/books/${books[0]}`);
+        navigate(buildLocalizedPath(`/books/${books[0]}`, currentLanguage));
         return;
       }
     }
-  }, [book, t, navigate]);
+  }, [book, t, navigate, currentLanguage]);
 
   const { illustration } = bookData[book];
   const displayTitle = t(`book.${book}.title`) || bookData[book]?.title;

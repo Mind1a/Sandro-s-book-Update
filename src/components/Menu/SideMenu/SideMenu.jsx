@@ -5,8 +5,14 @@ import OutsideClickHandler from "react-outside-click-handler";
 import ReactFocusLock from "react-focus-lock";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { buildLocalizedPath } from "../../../utils/routing";
 
-export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
+export const SideMenu = ({
+  currentLanguageCode,
+  isMenuOpen,
+  handleFalse,
+  handleToggle,
+}) => {
   const { t } = useTranslation();
   return (
     <div onKeyDown={(e) => e.key === "Escape" && handleFalse()}>
@@ -36,7 +42,10 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
                 </NavButton>
 
                 <div className={styles.sideMenu}>
-                  <Link to={"/contents"} onClick={handleFalse}>
+                  <Link
+                    to={buildLocalizedPath("/contents", currentLanguageCode)}
+                    onClick={handleFalse}
+                  >
                     {t("ui.menu.contents")}
                   </Link>
                   <div className={styles.iconContainer}>
@@ -45,7 +54,10 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
                       alt="line"
                     />
                   </div>
-                  <Link to={"/about"} onClick={handleFalse}>
+                  <Link
+                    to={buildLocalizedPath("/about", currentLanguageCode)}
+                    onClick={handleFalse}
+                  >
                     {t("ui.menu.about")}
                   </Link>
                   <div className={styles.iconContainer}>
@@ -54,7 +66,10 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
                       alt="line"
                     />
                   </div>
-                  <Link to={"/pdf"} onClick={handleFalse}>
+                  <Link
+                    to={buildLocalizedPath("/pdf", currentLanguageCode)}
+                    onClick={handleFalse}
+                  >
                     {t("ui.menu.pdf")}
                   </Link>
                   <div className={styles.iconContainer}>
@@ -63,7 +78,10 @@ export const SideMenu = ({ isMenuOpen, handleFalse, handleToggle }) => {
                       alt="line"
                     />
                   </div>
-                  <Link to={"/gallery"} onClick={handleFalse}>
+                  <Link
+                    to={buildLocalizedPath("/gallery", currentLanguageCode)}
+                    onClick={handleFalse}
+                  >
                     {t("ui.menu.gallery")}
                   </Link>
                 </div>

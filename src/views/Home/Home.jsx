@@ -4,11 +4,13 @@ import { motion } from "framer-motion";
 import ChaosLetters from "../../components/ChaosLetters/ChaosLetters";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { buildLocalizedPath, toRouteLanguage } from "../../utils/routing";
 
 const initialDelay = 0.25;
 
 export const Home = () => {
   const { t, i18n } = useTranslation();
+  const currentLanguage = toRouteLanguage(i18n.language);
   const isLatinCosmosText =
     i18n.language.startsWith("en") || i18n.language.startsWith("it");
 
@@ -42,7 +44,10 @@ export const Home = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 + initialDelay }}
       >
-        <Link to="/books/qaosidan-kosmosamde" className={styles.playIcon}>
+        <Link
+          to={buildLocalizedPath("/books/qaosidan-kosmosamde", currentLanguage)}
+          className={styles.playIcon}
+        >
           <motion.img
             whileHover={{ opacity: 0.45 }}
             src="assets/svgs/generic/playbutton-light.svg"

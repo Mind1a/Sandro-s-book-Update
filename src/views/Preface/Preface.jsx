@@ -4,17 +4,20 @@ import { Loader } from "../../components/Loader/Loader";
 import { AudioBar } from "../../components/AudioBar";
 import styles from "./Preface.module.scss";
 import { useTranslation } from "react-i18next";
+import { buildLocalizedPath, toRouteLanguage } from "../../utils/routing";
+import i18n from "../../utils/i18n";
 
 export const Preface = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const currentLanguage = toRouteLanguage(i18n.language);
 
   const handlePrevClick = () => {
-    navigate("/");
+    navigate(buildLocalizedPath("/", currentLanguage));
   };
 
   const handleNextClick = () => {
-    navigate("/books/qaosidan-kosmosamde");
+    navigate(buildLocalizedPath("/books/qaosidan-kosmosamde", currentLanguage));
   };
 
   const prefaceText = t("preface-translation.text").split("\n");

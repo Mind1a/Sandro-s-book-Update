@@ -1,16 +1,24 @@
 import styles from "./Languages.module.scss";
 import { LanguageChangeButton } from "../../Buttons/LanguageChangeButton";
 import i18n from "../../../utils/i18n";
+import { useLocation, useNavigate } from "react-router-dom";
+import { buildLocalizedPath } from "../../../utils/routing";
 
 export const Languages = ({
   currentLanguage,
   setCurrentLanguage,
   handleFalse,
 }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleLanguageChange = (language) => {
     i18n.changeLanguage(language);
     setCurrentLanguage(language.toUpperCase());
     localStorage.setItem("language", language);
+    navigate(buildLocalizedPath(location.pathname, language), {
+      replace: true,
+    });
     handleFalse();
   };
 

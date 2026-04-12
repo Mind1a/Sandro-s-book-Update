@@ -6,8 +6,14 @@ import { Dropdown } from "../Dropdown";
 import { Social } from "../Menu/Social/Social";
 import { SideMenu } from "../Menu/SideMenu";
 import { Languages } from "../Menu/Languages";
+import { buildLocalizedPath } from "../../utils/routing";
 
-export const Navigation = ({ isMenuOpen, handleFalse, handleToggle }) => {
+export const Navigation = ({
+  currentLanguageCode,
+  isMenuOpen,
+  handleFalse,
+  handleToggle,
+}) => {
   const [currentLanguage, setCurrentLanguage] = useState(() => {
     return localStorage.getItem("language")?.toUpperCase() || "GE";
   });
@@ -15,7 +21,7 @@ export const Navigation = ({ isMenuOpen, handleFalse, handleToggle }) => {
     <header>
       <nav className={styles.nav}>
         <div className={styles.toHomeContainer}>
-          <AnchorNavButton href={"/"}>
+          <AnchorNavButton href={buildLocalizedPath("/", currentLanguageCode)}>
             <img
               src="/assets/svgs/social-links/SandrosBooks_logo.svg"
               alt="logo"
@@ -25,6 +31,7 @@ export const Navigation = ({ isMenuOpen, handleFalse, handleToggle }) => {
 
         <div className={styles.navButtonsContainer}>
           <SideMenu
+            currentLanguageCode={currentLanguageCode}
             isMenuOpen={isMenuOpen}
             handleFalse={handleFalse}
             handleToggle={handleToggle}
