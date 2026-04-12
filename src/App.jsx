@@ -56,6 +56,79 @@ const pageTitles = {
   },
 };
 
+const pageDescriptions = {
+  ka: {
+    "/": "ქაოსიდან კოსმოსამდე. სანდრო ასათიანის მოთხრობათა კრებული ტექნოლოგიებსა და თანამედროვე ადამიანის შესაძლებლობებზე.",
+    "/contents": "ქაოსიდან კოსმოსამდე - სარჩევი და აუდიო თავები.",
+    "/about": "ინფორმაცია ქაოსიდან კოსმოსამდე პროექტის შესახებ.",
+    "/pdf": "წიგნის PDF ვერსია.",
+    "/preface": "წიგნის წინასიტყვაობა.",
+    "/gallery": "ილუსტრაციების გალერია.",
+  },
+  en: {
+    "/": "From Chaos to Cosmos. A story collection by Sandro Asatiani about technology and modern human potential.",
+    "/contents": "From Chaos to Cosmos table of contents and audio chapters.",
+    "/about": "About the From Chaos to Cosmos project.",
+    "/pdf": "Read the book as PDF.",
+    "/preface": "Read the foreword.",
+    "/gallery": "Illustration gallery.",
+  },
+  it: {
+    "/": "Dal caos al cosmo. Una raccolta di racconti di Sandro Asatiani su tecnologia e potenziale umano.",
+    "/contents": "Indice dei contenuti e capitoli audio di Dal caos al cosmo.",
+    "/about": "Informazioni sul progetto Dal caos al cosmo.",
+    "/pdf": "Leggi il libro in PDF.",
+    "/preface": "Leggi l'introduzione.",
+    "/gallery": "Galleria delle illustrazioni.",
+  },
+};
+
+const languageSeo = {
+  ka: { htmlLang: "ka", ogLocale: "ka_GE" },
+  en: { htmlLang: "en", ogLocale: "en_US" },
+  it: { htmlLang: "it", ogLocale: "it_IT" },
+};
+
+const setMetaContent = (selector, content) => {
+  if (!content) return;
+  let element = document.head.querySelector(selector);
+
+  if (!element) {
+    element = document.createElement("meta");
+
+    if (selector.startsWith('meta[name="')) {
+      const name = selector.match(/meta\[name="([^"]+)"\]/)?.[1];
+      if (name) {
+        element.setAttribute("name", name);
+      }
+    }
+
+    if (selector.startsWith('meta[property="')) {
+      const property = selector.match(/meta\[property="([^"]+)"\]/)?.[1];
+      if (property) {
+        element.setAttribute("property", property);
+      }
+    }
+
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute("content", content);
+};
+
+const setCanonical = (href) => {
+  if (!href) return;
+  let canonical = document.head.querySelector('link[rel="canonical"]');
+
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.setAttribute("rel", "canonical");
+    document.head.appendChild(canonical);
+  }
+
+  canonical.setAttribute("href", href);
+};
+
 const noNavigationPaths = ["/"];
 
 function LocalizedApp() {
@@ -85,8 +158,25 @@ function LocalizedApp() {
   useEffect(() => {
     const titles = pageTitles[currentLanguage] || pageTitles.ka;
     const pageTitle = titles[relativePath] || pageTitles.ka["/"];
+    const descriptions =
+      pageDescriptions[currentLanguage] || pageDescriptions.ka;
+    const pageDescription =
+      descriptions[relativePath] || pageDescriptions.ka["/"];
+    const seoLanguage = languageSeo[currentLanguage] || languageSeo.ka;
+    const absoluteUrl = `${window.location.origin}${location.pathname}`;
+
     document.title = pageTitle;
-  }, [relativePath, currentLanguage]);
+    document.documentElement.setAttribute("lang", seoLanguage.htmlLang);
+
+    setMetaContent('meta[name="description"]', pageDescription);
+    setMetaContent('meta[property="og:title"]', pageTitle);
+    setMetaContent('meta[property="og:description"]', pageDescription);
+    setMetaContent('meta[property="og:url"]', absoluteUrl);
+    setMetaContent('meta[property="og:locale"]', seoLanguage.ogLocale);
+    setMetaContent('meta[name="twitter:title"]', pageTitle);
+    setMetaContent('meta[name="twitter:description"]', pageDescription);
+    setCanonical(absoluteUrl);
+  }, [relativePath, currentLanguage, location.pathname]);
 
   useEffect(() => {
     const routeLanguageFromI18n = toRouteLanguage(i18n.language);
