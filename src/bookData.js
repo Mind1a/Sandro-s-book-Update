@@ -60,7 +60,7 @@ export const bookData = {
     audio: {
       ge: "/assets/mp3/GeorgianAudio/ofisebis-amaoeba.mp3",
       en: "/assets/mp3/EnglishAudio/05_The_Vanity_of_Offices.mp3",
-      it: "/assets/mp3/ItalianAudio/05_Vanità_degli_uffici.mp3",
+      it: "/assets/mp3/ItalianAudio/05_Vanita_degli_uffici.mp3",
     },
     title: "ოფისების ამაოება",
   },
@@ -125,7 +125,7 @@ export const bookData = {
     audio: {
       ge: "/assets/mp3/GeorgianAudio/ukvdaveba.mp3",
       en: "/assets/mp3/EnglishAudio/11_Immortality.mp3",
-      it: "/assets/mp3/ItalianAudio/11_Immortalità.mp3",
+      it: "/assets/mp3/ItalianAudio/11_Immortalita.mp3",
     },
     title: "უკვდავება",
   },

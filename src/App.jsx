@@ -89,6 +89,12 @@ const languageSeo = {
   it: { htmlLang: "it", ogLocale: "it_IT" },
 };
 
+const languageSocialImages = {
+  ka: "/assets/png/books_pdf/Book_KA.png",
+  en: "/assets/png/books_pdf/Book_EN.png",
+  it: "/assets/png/books_pdf/Book_IT.png",
+};
+
 const setMetaContent = (selector, content) => {
   if (!content) return;
   let element = document.head.querySelector(selector);
@@ -163,6 +169,9 @@ function LocalizedApp() {
     const pageDescription =
       descriptions[relativePath] || pageDescriptions.ka["/"];
     const seoLanguage = languageSeo[currentLanguage] || languageSeo.ka;
+    const imagePath =
+      languageSocialImages[currentLanguage] || languageSocialImages.ka;
+    const absoluteImageUrl = `${window.location.origin}${imagePath}`;
     const absoluteUrl = `${window.location.origin}${location.pathname}`;
 
     document.title = pageTitle;
@@ -173,8 +182,11 @@ function LocalizedApp() {
     setMetaContent('meta[property="og:description"]', pageDescription);
     setMetaContent('meta[property="og:url"]', absoluteUrl);
     setMetaContent('meta[property="og:locale"]', seoLanguage.ogLocale);
+    setMetaContent('meta[property="og:image"]', absoluteImageUrl);
+    setMetaContent('meta[property="og:image:type"]', "image/png");
     setMetaContent('meta[name="twitter:title"]', pageTitle);
     setMetaContent('meta[name="twitter:description"]', pageDescription);
+    setMetaContent('meta[name="twitter:image"]', absoluteImageUrl);
     setCanonical(absoluteUrl);
   }, [relativePath, currentLanguage, location.pathname]);
 
