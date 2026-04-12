@@ -198,20 +198,35 @@
       flex-direction: column;
       padding: 30px 0 20px 0;
 
-      h3 {
-        text-align: center;
-        font-size: 40px;
-        font-family: "Sandro-Universal-Bold";
-        color: var(--color-white);
-        line-height: 50px;
-        margin-bottom: 30px;
+      .bookExternalLink {
+        display: block;
+        width: 180px;
+        margin: 0 auto;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 12px;
+        padding: 8px;
+        transition:
+          transform 0.25s ease,
+          opacity 0.25s ease;
+
+        &:active {
+          transform: scale(0.98);
+        }
       }
 
-      a {
-        img {
-          width: 150px;
-          height: 210px;
-        }
+      .bookExternalImage {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .buyCta {
+        margin-top: 16px;
+        color: #f4f0ec;
+        font-family: "Sandro-Universal-Bold";
+        font-size: 18px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
       }
     }
   }

@@ -61,3 +61,14 @@
   width: 100%;
   height: auto;
 }
+
+.bookExternalCta {
+  margin: 12px auto 0;
+  width: fit-content;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  color: var(--color-white);
+  font-family: "Sandro-Universal-Bold";
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}

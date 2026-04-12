@@ -60,6 +60,8 @@ export const Pdf = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.bookExternalLink}
+            aria-label={t("ui.buyBookCta")}
+            title={t("ui.buyBookCta")}
           >
             <img
               src={currentExternalBook.image}
@@ -67,6 +69,7 @@ export const Pdf = () => {
               className={styles.bookExternalImage}
             />
           </a>
+          <p className={styles.bookExternalCta}>{t("ui.buyBookCta")}</p>
         </div>
       </motion.div>
     </>

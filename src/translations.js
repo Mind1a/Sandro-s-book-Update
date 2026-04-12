@@ -43,6 +43,7 @@ const translations = {
         tableOfContents: "სარჩევი",
         getStarted: "დაწყება",
         downloadPdfVersion: "გადმოიწერე წიგნის PDF ვერსია",
+        buyBookCta: "წიგნის შეძენა",
         menu: {
           contents: "სარჩევი",
           about: "პროექტის შესახებ",
@@ -123,6 +124,7 @@ const translations = {
         tableOfContents: "Indice dei contenuti",
         getStarted: "Inizia",
         downloadPdfVersion: "Scarica la versione PDF del libro",
+        buyBookCta: "Acquista il libro",
         menu: {
           contents: "Indice dei contenuti",
           about: "Informazioni sul progetto",
@@ -204,6 +206,7 @@ const translations = {
         tableOfContents: "Table of Contents",
         getStarted: "Get Started",
         downloadPdfVersion: "Download the book PDF version",
+        buyBookCta: "Buy the book",
         menu: {
           contents: "Table of Contents",
           about: "About the Project",
