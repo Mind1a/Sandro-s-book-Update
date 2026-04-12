@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Serve existing files and directories directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Language-aware entry points for bots and direct requests
+RewriteRule ^en/?$ /en.html [L]
+RewriteRule ^en/.*$ /en.html [L]
+RewriteRule ^it/?$ /it.html [L]
+RewriteRule ^it/.*$ /it.html [L]
+RewriteRule ^ka/?$ /ka.html [L]
+RewriteRule ^ka/.*$ /ka.html [L]
+
+# SPA fallback
+RewriteRule ^ index.html [L]

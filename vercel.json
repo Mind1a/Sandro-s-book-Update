@@ -1,1 +1,11 @@
-{ "rewrites": [{ "source": "/(.*)", "destination": "/" }] }
+{
+	"rewrites": [
+		{ "source": "/en", "destination": "/en.html" },
+		{ "source": "/en/(.*)", "destination": "/en.html" },
+		{ "source": "/it", "destination": "/it.html" },
+		{ "source": "/it/(.*)", "destination": "/it.html" },
+		{ "source": "/ka", "destination": "/ka.html" },
+		{ "source": "/ka/(.*)", "destination": "/ka.html" },
+		{ "source": "/(.*)", "destination": "/" }
+	]
+}
