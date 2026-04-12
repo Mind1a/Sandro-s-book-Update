@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useRelativeWidth } from "./useRelativeWidth";
 import { clamp, getWidth } from "../utils/book";
 import i18n from "../utils/i18n";
+import { buildLocalizedPath, toRouteLanguage } from "../utils/routing";
 
 export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
   const navigate = useNavigate();
+  const currentLanguage = toRouteLanguage(i18n.language);
 
   const [lang, setLang] = useState(i18n.language || "ge");
   const languageKey = (lang || "ge").split("-")[0];
@@ -175,16 +177,18 @@ export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
     });
 
     if (!playableBooks.length) {
-      navigate("/preface");
+      navigate(buildLocalizedPath("/preface", currentLanguage));
       return;
     }
 
     if (index <= 0) {
-      navigate("/preface");
+      navigate(buildLocalizedPath("/preface", currentLanguage));
       return;
     }
 
-    navigate(`/books/${playableBooks[index - 1]}`);
+    navigate(
+      buildLocalizedPath(`/books/${playableBooks[index - 1]}`, currentLanguage),
+    );
   };
 
   const handleNextClick = () => {
@@ -195,12 +199,16 @@ export const useBookPlayer = (book, bookData, books, minAbsWidth) => {
     });
 
     if (index === -1) {
-      navigate(`/books/${playableBooks[0]}`);
+      navigate(
+        buildLocalizedPath(`/books/${playableBooks[0]}`, currentLanguage),
+      );
       return;
     }
 
     const nextIndex = clamp(0, index + 1, playableBooks.length - 1);
-    navigate(`/books/${playableBooks[nextIndex]}`);
+    navigate(
+      buildLocalizedPath(`/books/${playableBooks[nextIndex]}`, currentLanguage),
+    );
   };
 
   return {
